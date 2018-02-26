@@ -21,3 +21,9 @@
 /yarn-error.log
 
 .byebug_history
+
+# https://www.quora.com/Which-file-must-we-add-into-gitignore-while-working-with-the-Rails-application
+# config/secrets.yml and config/database.yml
+
+/config/secrets.yml
+/config/database.yml
