@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   
   get 'advisory_board' => 'welcome#advisory_board'
   
+# SIGN UP / LOGIN
+
+  get 'signup' => 'welcome#signup'
+  
+  get 'login' => 'welcome#login'
+  
 # PASSENGERS ----------------------
 
   get 'passengers/' => 'passengers#index'
