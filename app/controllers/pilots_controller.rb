@@ -5,6 +5,9 @@ class PilotsController < ApplicationController
   def register
   
   end
+  def aircraft_registration
+    
+  end
   def faq
     
   end
