@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   
   get 'pilots/register' => 'pilots#register'
   
-  get 'pilots/aircraft_registration' => 'pilots#aircraft_registration'
+  get 'aircraft_registration' => 'pilots#aircraft_registration'
   
   get 'pilots/faq' => 'pilots#faq'
   
