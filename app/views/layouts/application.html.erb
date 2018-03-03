@@ -26,13 +26,37 @@
               <%= link_to 'Home', root_path, :class => 'nav-link' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Passengers', passengers_path, :class => 'nav-link' %>
+              <div class="dropdown">
+                <%= link_to 'Passengers', passengers_path, :class => 'nav-link dropbtn' %>
+                <div class="dropdown-content bg-dark">
+                  <%= link_to 'Travel Request', passengers_travel_path, :class => 'nav-link' %>
+                  <%= link_to 'FAQs', passengers_faq_path, :class => 'nav-link' %>
+                </div>
+              </div>
             </li>
             <li class="nav-item">
-              <%= link_to 'Pilots', pilots_path, :class => 'nav-link' %>
+              <div class="dropdown">
+                <%= link_to 'Pilots', pilots_path, :class => 'nav-link' %>
+                <div class="dropdown-content bg-dark">
+                  <%= link_to 'Pilot Application', pilots_register_path, :class => 'nav-link' %>
+                  <%= link_to 'Aircraft Application', aircraft_registration_path, :class => 'nav-link'  %>
+                  <%= link_to 'FAQs', pilots_faq_path, :class => 'nav-link'  %>
+                  <%= link_to 'Available Missions', pilots_available_missions_path, :class => 'nav-link'  %>
+                  <%= link_to 'A/C Pilot Recognition', pilots_recognition_path, :class => 'nav-link'  %>
+                  <%= link_to 'Mission Control', pilots_mission_control_path, :class => 'nav-link'  %>
+                </div>
+              </div>
             </li>
             <li class="nav-item">
-              <%= link_to 'Donate', donate_path, :class => 'nav-link' %>
+              <div class="dropdown">
+                <%= link_to 'Donate', donate_path, :class => 'nav-link' %>
+                <div class="dropdown-content bg-dark">
+                  <%= link_to 'Financial Donors', donors_path, :class => 'nav-link' %>
+                  <%= link_to 'Aircraft Owner and Pilot Recognition', pilot_and_owner_recognition_path, :class => 'nav-link'  %>
+                  <%= link_to 'Corporate Sponsors', corporate_recognition_path, :class => 'nav-link'  %>
+                  <%= link_to 'Memorial Wall', memorial_wall_path, :class => 'nav-link'  %>
+                </div>
+              </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">News</a>
