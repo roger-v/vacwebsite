@@ -8,6 +8,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  	
+  	<link href="https://fonts.googleapis.com/css?family=Fugaz+One|Source+Sans+Pro" rel="stylesheet">
+  	
   	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -16,7 +19,7 @@
   <body>
     <!-- https://www.codeply.com/go/1ZFF5CEXM5 -->
     <div class="container-fluid">
-      <div class="row bg-dark">
+      <div class="row bg-navyblue">
         <div class="col-lg-3 col-sm-0"></div>
         <div class="col-lg-6 col-sm-0" style="text-align:center;">
           <%= image_tag "vaccrest.png", {:class => 'img-fluid', :width => '400px'} %>
@@ -24,8 +27,8 @@
         <div class="col-lg-3 col-sm-0"></div>
       </div>
     </div>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
-      <%= link_to 'Veterans Airlift Command', root_path, :class => 'navbar-brand' %>
+    <nav class="navbar navbar-expand-lg bg-navyblue navbar-dark sticky-top">
+      <%= link_to 'VETERANS AIRLIFT COMMAND', root_path, :class => 'navbar-brand bowlby' %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCustom">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -58,6 +61,27 @@
           </ul>
       </div>
     </nav>
+    <div id="index" class="container">
     <%= yield %>
+    </div>
+    <footer class="container text-white text-center ">
+      
+      <h5>Veterans Airlift Command</h5>
+      <div>
+      5775 Wayzata Boulevard, Suite 700 &bull; 
+      St. Louis Park, MN 55416 &bull;
+      <a href="https://www.google.com/maps/place/5775+Wayzata+Blvd+%23700,+St+Louis+Park,+MN+55416/@44.9688915,-93.3560128,17z/data=!3m1!4b1!4m5!3m4!1s0x52b334bd91eeea8d:0x75457db18494c6f0!8m2!3d44.9688915!4d-93.3538241"
+      target="_blank">Map</a>
+      </div>
+      <div>
+        952-582-2911
+      </div>
+      <div>
+        info@veteransairlift.org
+      </div>
+      <div>
+        <a href="#">Privacy Policy</a>
+      </div>
+    </footer>
   </body>
 </html>
