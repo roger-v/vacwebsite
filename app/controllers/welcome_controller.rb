@@ -19,4 +19,13 @@ class WelcomeController < ApplicationController
   def create_profile
     
   end
+  def advisory_board
+    
+  end
+  def signup
+    
+  end
+  def login
+    
+  end
 end
