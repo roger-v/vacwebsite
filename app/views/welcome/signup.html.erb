@@ -14,7 +14,10 @@
       <%= f.password_field :password, class: 'form-control', required: true %>
       <%= f.check_box :rememberme %> <%= f.label "Remember Me", style: "margin-top:10px" %>
       <br>
-      <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:10px"  %>
+      <div class="btn btn-primary" style="margin-top:10px">
+        <a href="create_profile" class="text-white">Sign up</a>
+      </div>
+      <!--  f.submit "Sign up", class: "btn btn-primary", style: "margin-top:10px"   -->
       
     <% end %>
     <br>
