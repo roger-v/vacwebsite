@@ -58,6 +58,7 @@ hr {
 }
 
 .shortcut {
+    margin:2%;
     padding:10%;
     border: 2px solid #c60651;
     border-radius: 20px;

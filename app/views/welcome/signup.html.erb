@@ -1,22 +1,25 @@
-<div class="container-fluid">
-  
 
-  <div class="row">
-    <div class="col-md-3 col-sm-0"></div>
-    <div class="col-md-6">
-      <% provide(:title, "Sign up") %>
-      <h1>Sign Up</h1>
-      <%= form_for(:session, url: signup_path) do |f| %>
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control' %>
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
-        <br>
-        <%= f.submit "Sign up", class: "btn btn-primary" %>
-      <% end %>
+<div class="row" style="padding:10%;">
+  <div class="col-md-3 col-sm-0"></div>
+  <div class="col-md-6 col-sm-12">
+    <% provide(:title, "Sign up") %>
+    <h1 class="fontColor1 bowlby">SIGN UP</h1>
+    <%= form_for(:session, url: signup_path) do |f| %>
+      <%= f.label "First Name *"  %>
+      <%= f.text_field :firstname, class: 'form-control', required: true %>
+      <%= f.label "Last Name *" %>
+      <%= f.text_field :lastname, class: 'form-control', required: true %>
+      <%= f.label "E-mail *" %>
+      <%= f.email_field :email, class: 'form-control', required: true %>
+      <%= f.label "Password *" %>
+      <%= f.password_field :password, class: 'form-control', required: true %>
+      <%= f.check_box :rememberme %> <%= f.label "Remember Me", style: "margin-top:10px" %>
       <br>
-      <p>Already have an account? <%= link_to "Log in instead.", login_path %></p>
-    </div>
-    <div class="col-md-3 col-sm-0"></div>
+      <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:10px"  %>
+      
+    <% end %>
+    <br>
+    <p>Already have an account? <%= link_to "Log in instead.", login_path %></p>
   </div>
+  <div class="col-md-3 col-sm-0"></div>
 </div>

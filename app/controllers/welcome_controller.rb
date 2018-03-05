@@ -16,4 +16,7 @@ class WelcomeController < ApplicationController
   def login
     
   end
+  def create_profile
+    
+  end
 end
