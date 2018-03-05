@@ -1,5 +1,111 @@
-<div class="row" style="padding:5%;">
-  
-  <h1 class="fontColor1 bowlby">SELECT PROFILE TYPE</h1>
-  
+<!-- THIS IS JUST A MOCKUP NOT A COMPLETE PAGE! -->
+<div class="row" style="padding:2%;">
+  <div class="col-md-12">
+    <h1 class="fontColor1 bowlby">
+      SELECT PROFILE TYPE
+    </h1>
+    <div id="donor_check">
+      <%= form_tag do %>
+        <%= check_box_tag :donor %>
+        <%= label_tag :donor, "Donor", class: 'h4' %>
+      <% end %>
+    </div>
+    <div id="donor_form" style="padding-left:5%;">
+      <h4 class="fontColor1">
+        Donation Campaign
+      </h4>
+      <p>
+        If you'd like your donation to be associated with a specific VAC fundraising program or campaign, please indicate your selection below (leave blank if you have no specific designation):
+        <%= form_for :donationcampaign do |f| %>
+        <%= f.select :from, ['General', 'In memory of COL Richard Iversen'] %>
+        <% end %>
+      </p>
+      <h4 class="fontColor1">
+        Donor Recognition
+      </h4>
+      <p>
+        <%= form_tag do %>
+          <%= check_box_tag :donorrecognition %>
+          <%= label_tag :donorrecognition, "I prefer that my name remain anonymous (checking this box will keep your name off of the donor recognition page) " %>
+          <div>If you would like the name displayed on our recognition page to be something
+          other than the first name and last name entered above, please enter that here exactly 
+          as you would like it displayed: <%= text_field :donoralias, class: 'form-control' %>
+          </div>
+        <% end %>
+      </p>
+      <h4 class="fontColor1">
+        Donation Honoree
+      </h4>
+      <p>
+        If you are making this donation in honor of another person, please enter their name below and it will be included on our donor recognition page:
+        
+        <%= form_tag do %>
+        <%= label_tag :honoreelabel, "Honoree Name:" %>
+        <%= text_field :donorhonoree, class: 'form-control' %>
+        <% end %>
+      </p>
+    </div>
+    
+    <div id="pilot_check">
+      <%= form_tag do %>
+        <%= check_box_tag :pilot %>
+        <%= label_tag :pilot, "Pilot", class: 'h4' %>
+      <% end %>
+    </div>
+    <div id="pilot_form" style="padding-left:5%;">
+      <h4 class="fontColor1">
+        Join on our Wing
+      </h4>
+      <p>Instructions: The first step to joining the VAC is filling out this 
+      application form. While only your contact information is required, any 
+      additional information you provide will help speed up the process.</p>
+      <p>Once your application is submitted, the VAC will contact you.</p>
+      <p>Question about this Application?  Call us at 952-582-2911</p>
+      <h4 class="fontColor1">
+        Type of Registration
+      </h4>
+      <p>You must select one of the following:</p>
+      <%= form_for :donationcampaign do |f| %>
+        <%= f.select :from, ['I am registering as a Pilot AND I am registering an Aircraft that I fly', 'I am only registering an Aircraft', 'I am only registering as a Pilot'] %>
+      <% end %>
+    </div>
+    
+    <div id="veteran_check">
+      <%= form_tag do %>
+        <%= check_box_tag :veteran %>
+        <%= label_tag :veteran, "Veteran", class: 'h4' %>
+      <% end %>
+    </div>
+    <div id="veteran_form" style="padding-left:5%">
+      <%= form_for :vetform do |f| %>
+        <%= f.label "Veteran's First Name *" %>
+        <%= f.text_field :vetfirstname, required: true  %>
+        <br>
+        <%= f.label "Veteran's Last Name *" %>
+        <%= f.text_field :vetlastname, required: true %>
+        <br>
+        <%= f.label "Veteran's Branch of Service" %>
+        <%= f.text_field :vetfirstname %>
+        <br>
+        <%= f.label "Veteran's Phone #" %>
+        <%= f.text_field :vetphone %>
+        <br>
+        <%= f.label "Hometown City" %>
+        <%= f.text_field :vethometown %>
+        <br>
+        <%= f.label "Veteran's Rank" %>
+        <%= f.text_field :vetrank %>
+        <br>
+        <%= f.label "Health Care Facility Name" %>
+        <%= f.text_field :vethcfacility %>
+        <br>
+        <%= f.label "Purple Heart Recipient" %>
+        <%= f.check_box :vetphrecip %>
+      <% end %>
+    </div>
+    
+    <%= form_tag do %>
+      <%= submit_tag "Submit", class: "btn btn-primary", style: "margin-left:5%" %>
+    <% end %>
+  </div>
 </div>
