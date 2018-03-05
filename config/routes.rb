@@ -49,4 +49,8 @@ Rails.application.routes.draw do
   
   get 'memorial_wall' => 'donate#memorial_wall'
   
+# ------------------------------
+
+  get 'create_profile' => 'welcome#create_profile'
+  
 end
