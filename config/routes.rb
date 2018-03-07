@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   
   get 'pilots/available_missions' => 'pilots#available_missions'
   
+  resources :missions
+  
   get 'pilots/recognition' => 'pilots#recognition'
   
   get 'pilots/mission_control' => 'pilots#mission_control'
