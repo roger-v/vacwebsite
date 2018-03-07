@@ -46,4 +46,5 @@ class Calendar < Struct.new(:view, :date, :callback)
       (first..last).to_a.in_groups_of(7)
     end
 end
+
 end
