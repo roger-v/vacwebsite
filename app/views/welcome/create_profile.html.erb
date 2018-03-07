@@ -65,8 +65,15 @@
         Type of Registration
       </h4>
       <p>You must select one of the following:</p>
-      <%= form_for :donationcampaign do |f| %>
-        <%= f.select :from, ['I am registering as a Pilot AND I am registering an Aircraft that I fly', 'I am only registering an Aircraft', 'I am only registering as a Pilot'] %>
+      <%= form_for :pilotopts do |f| %>
+        <%= f.radio_button :pilotandaircraft, "poptlabel1" %>
+        <%= label :poptlabel1, "I am registering as a Pilot AND I am registering an Aircraft that I fly" %>
+        <br>
+        <%= f.radio_button :aircraftonly, "poptlabel2" %>
+        <%= label :poptlabel2, "I am only registering an Aircraft" %>
+        <br>
+        <%= f.radio_button :pilotonly, "poptlabel3" %>
+        <%= label :poptlabel3, "I am only volunteering as a Pilot" %>
       <% end %>
     </div>
     
