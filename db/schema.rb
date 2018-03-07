@@ -12,6 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20180307012646) do
 
+  create_table "missions", force: :cascade do |t|
+    t.date "date"
+    t.string "from"
+    t.string "to"
+    t.integer "passengers"
+    t.integer "weight"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"

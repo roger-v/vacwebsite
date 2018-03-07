@@ -1,0 +1,63 @@
+<h1>Avaliable Missions</h1>
+<h2>Calendar</h2>
+<p>Below is a calendar of unassigned missions that are in need of an aircraft/pilot. Please click on a mission on a day and click 'Interested?' link to send us an email. We will respond with details allowing you to decide whether you are able to assist. No obligation.</p>
+
+  <div id="missions">
+    <h3 id="month", align = "center">
+      <%= link_to "<", date: @date.prev_month %>
+      &nbsp;
+      &nbsp;
+      <%= @date.strftime("%B %Y") %> 
+      &nbsp;
+      &nbsp;
+      <%= link_to ">", date: @date.next_month %>
+    </h3>
+    
+  <table>
+  <%= calendar @date do |date| %>
+  <%= date.day %>
+  <% if @missions_by_date[date] %>
+  <ul>
+    <% @missions_by_date[date].each do |mission| %>
+    <li> <%= link_to mission.from + " to " + mission.to, mission %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <% end %>
+  </table>
+  </div>
+
+<hr>
+
+<h2>List</h2>
+<p>Below is a list of unassigned missions that are in need of an aircraft/pilot. Please click on a 'Show' by a mission and click 'Interested?' link to send us an email. We will respond with details allowing you to decide whether you are able to assist. No obligation.</p>
+<p>NOTE: Only admin can add,edit, and delete missions.</p>
+
+<table style="width:70%">
+  <tr>
+    <th>Date</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Passengers</th>
+    <th>Weight</th>
+    <!--<th colspan="10"></th> -->
+  </tr>
+
+  <% @missions.each do |mission| %>
+    <tr>
+      <td><%= mission.date.strftime("%B %e, %Y") %></td>
+      <td><%= mission.from %></td>
+      <td><%= mission.to %></td>
+      <td><%= mission.passengers %></td>
+      <td><%= mission.weight %></td>
+      <td><%= link_to 'Show', mission_path(mission) %></td>
+      <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
+      <td><%= link_to 'Delete', mission_path(mission),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
+ <%= link_to 'Add new mission', new_mission_path %>
+
+

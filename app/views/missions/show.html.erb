@@ -1,0 +1,35 @@
+
+<p>
+  <strong>Date:</strong>
+  <%= @mission.date %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @mission.from %>
+</p>
+ 
+<p>
+  <strong>To:</strong>
+  <%= @mission.to %>
+</p>
+
+<p>
+  <strong># of Passengers:</strong>
+  <%= @mission.passengers %>
+</p>
+
+<p>
+  <strong>Weight (lbs)</strong>
+  <%= @mission.weight %>
+</p>
+
+<p>
+  <strong>Distance</strong>
+  <%= @mission.passengers %>
+</p>
+
+
+<a href="mailto:AirBoss@VeteransAirlift.org?subject=I'm interested in the Mission from " + @mission.from + " to " +  @mission.to + " on " + @mission.date>Interested?</a> |
+<%= link_to 'Edit', edit_mission_path(@mission) %> |
+<%= link_to 'Done', missions_path %>

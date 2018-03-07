@@ -1,0 +1,45 @@
+<%= form_with model: @mission, local: true do |form| %>
+ 
+  <% if @mission.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@mission.errors.count, "error") %> prohibited
+        this mission from being saved:
+      </h2>
+      <ul>
+        <% @mission.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+<p>
+    <%= form.label :date %><br>
+    <%= form.date_select :date, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year, end_year: Date.today.year + 1}, {required: true} %>
+  </p>
+  <p>
+    <%= form.label :from %><br>
+    <%= form.text_field :from %>
+  </p>
+  
+  <p>
+    <%= form.label :to %><br>
+    <%= form.text_field :to %>
+  </p>
+ 
+  <p>
+    <%= form.label :passengers %><br>
+    <%= form.text_area :passengers %>
+  </p>
+  
+    <p>
+    <%= form.label :weight %><br>
+    <%= form.text_area :weight %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
