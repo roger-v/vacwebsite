@@ -12,6 +12,8 @@
       <%= f.email_field :email, class: 'form-control', required: true %>
       <%= f.label "Password *" %>
       <%= f.password_field :password, class: 'form-control', required: true %>
+      <%= f.label "Confirm Password *" %>
+      <%= f.password_field :password_confirmation, class: 'form-control', required: true %>
       <%= f.check_box :rememberme %> <%= f.label "Remember Me", style: "margin-top:10px" %>
       <br>
       <div class="btn btn-primary" style="margin-top:10px">

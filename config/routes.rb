@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   
 # SIGN UP / LOGIN
 
-  get 'signup' => 'welcome#signup'
+  
+  get '/signup' => 'users#new'
   
   get 'login' => 'welcome#login'
   
@@ -54,5 +55,9 @@ Rails.application.routes.draw do
 # ------------------------------
 
   get 'create_profile' => 'welcome#create_profile'
+  
+  
+  
+  resources :users
   
 end
