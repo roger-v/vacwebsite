@@ -15,7 +15,7 @@ group :development do
 end
 
 group :production do 
-  gem 'pg'         #gem to use in production environment
+  gem 'pg'        #gem to use in production environment
 end
 
 # Use Puma as the app server
@@ -66,3 +66,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'bcrypt', '3.1.11'

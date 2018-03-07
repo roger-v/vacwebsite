@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   get 'welcome/' => 'welcome#index'
@@ -50,5 +52,9 @@ Rails.application.routes.draw do
   get 'corporate_recognition' => 'donate#corporate_recognition'
   
   get 'memorial_wall' => 'donate#memorial_wall'
+  
+# ------------------------------
+
+  get 'create_profile' => 'welcome#create_profile'
   
 end

@@ -1,25 +1,62 @@
-<div class="container-fluid">
-  <div class="row">
-    <h1>This is the homepage</h1>
+
+<div class="row" style="padding-top:20px;">
+  <div id="introStatement" class="col-lg-6 col-md-12">
+    <div class="text-center">
+      <div class="bowlby">
+        <h1 class="fontColor1">COMBAT WOUNDED</h1>
+        <h1>THEY'VE GOT 
+        <span style="white-space: nowrap">HE
+        <%= image_tag "purheart.png", {:id => "heart", :width => '40px'} %>
+        RT</span>
+        </h1>
+        <h1>THEY NEED WINGS</h1>
+      </div>
+      <hr>
+      <h5>
+        Imagine returning home from combat facing devastating injuries,
+        and long-term hospitalization in a facility hundreds of miles away from
+        your family.
+      </h5>
+      <h5>
+        <i>Imagine somebody brings you together.</i>
+      </h5>
+      
+    </div>
   </div>
-  <ul>
-    <li>
-      <%= link_to 'Travel Request', passengers_travel_path %>
-    </li>
-    <li>
-      <%= link_to 'Open Missions', missions_path %>
-    </li>
-    <li>
-      <%= link_to 'Corporate Sponsors', corporate_recognition_path %>
-    </li>
-    <li>
-      <%= link_to 'Donate', donate_path %>
-    </li>
-    <li>
-      <%= link_to 'Register your Aircraft', aircraft_registration_path %>
-    </li>
-    <li>
-      <%= link_to 'Advisory Board', advisory_board_path %>
-    </li>
-  </ul>
+  <div class="col-lg-6 col-md-12">
+    <div id="introvid" class="embed-responsive embed-responsive-16by9">
+      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/8z0nSJyKXL8">
+      </iframe>
+    </div>
+  </div>
+  </div>
+<div class="row">
+  <div class="col-lg-12">
+    <div id="introDesc">
+      <h4 class="sourceSans unbold text-gray">
+        The Veterans Airlift Command provides <i class="fontColor1">free</i>
+        air transportation to post-9/11 combat wounded and 
+        their families for medical and other compassionate 
+        purposes through a national network of volunteer 
+        aircraft owners and pilots.
+      </h4>
+    </div>
+  </div>
+</div>
+<div class="row" style="padding: 5%;">
+  <% (0..5).each do |i| %>
+    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+      <div class="shortcut">
+        <a href="<%= @iconpaths[i]%>">
+          <div>
+              <%= image_tag ("icons/" + @icons[i] + ".png"), :class => "img-fluid" %>
+          </div>
+          <div class="text-center fontColor1 bowlby">
+            <%= @icondesc[i] %>
+          </div>
+        </a>
+      </div>
+    </div>
+  <% end %>
+  
 </div>
