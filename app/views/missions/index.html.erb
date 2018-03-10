@@ -16,14 +16,14 @@
     
   <table>
   <%= calendar @date do |date| %>
-  <%= date.day %>
-  <% if @missions_by_date[date] %>
-  <ul>
-    <% @missions_by_date[date].each do |mission| %>
-    <li> <%= link_to mission.from + " to " + mission.to, mission %></li>
+    <%= date.day %>
+    <% if @missions_by_date[date] %>
+      <ul>
+        <% @missions_by_date[date].each do |mission| %>
+        <li> <%= link_to mission.from + " to " + mission.to, mission %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-  <% end %>
   <% end %>
   </table>
   </div>

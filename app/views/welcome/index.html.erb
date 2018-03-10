@@ -1,5 +1,5 @@
 
-<div class="row" style="padding-top:20px;">
+<div class="row" style="padding-top:5%;">
   <div id="introStatement" class="col-lg-6 col-md-12">
     <div class="text-center">
       <div class="bowlby">
@@ -43,15 +43,15 @@
     </div>
   </div>
 </div>
-<div class="row" style="padding: 5%;">
+<div class="row" style="padding:0% 5%;">
   <% (0..5).each do |i| %>
-    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6">
+    <div class="col-lg-2 col-md-4">
       <div class="shortcut">
         <a href="<%= @iconpaths[i]%>">
           <div>
-              <%= image_tag ("icons/" + @icons[i] + ".png"), :class => "img-fluid" %>
+              <%= image_tag ("icons/" + @icons[i] + ".png"), :class => "img-fluid mx-auto d-block" %>
           </div>
-          <div class="text-center fontColor1 bowlby">
+          <div class="text-center fontColor1 bowlby" style="padding-top:5%;">
             <%= @icondesc[i] %>
           </div>
         </a>
@@ -59,4 +59,12 @@
     </div>
   <% end %>
   
+</div>
+<div class="row justify-content-around align-items-center" style="padding-bottom:5%">
+  <div class="col-lg-3 col-sm-6 col-xs-12">
+  <%= link_to (image_tag "cfc.gif" , {:class => 'img-fluid mx-auto d-block'}), "http://www.opm.gov/combined-federal-campaign/", :target => '_blank' %>
+  </div>
+  <div class="col-lg-3 col-sm-6 col-xs-12">
+  <%= link_to (image_tag "button-facebook.png", {:class => 'img-fluid mx-auto d-block'} ), "https://www.facebook.com/pages/Veterans-Airlift-Command/22641923598?fref=ts", :target => '_blank' %>
+  </div>
 </div>
