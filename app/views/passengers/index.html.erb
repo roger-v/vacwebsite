@@ -1,13 +1,123 @@
-<div class="container-fluid">
-  <div class="row">
-    <h1>This is the Passengers page</h1>
+<h1 class="bowlby fontColor1">PASSENGER INFORMATION</h1>
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <p class="text-navyblue"><b><i>
+      As citizens, we owe an enormous debt to those
+      who have sacrificed for our country.
+      It's a debt that is impossible to repay.
+      But that won't stop us from trying.
+    </i></b></p>
   </div>
-  <ul>
-    <li>
-      <%= link_to 'Travel Request', passengers_travel_path %>
-    </li>
-    <li>
-      <%= link_to 'Passengers FAQs', passengers_faq_path %>
-    </li>
-  </ul>
+  <div class="col-md-6 col-sm-12">
+    <div style="padding:10px 20px;">
+      <button type="button" class="btn btn-primary btn-block bg-navyblue">
+        <b>PASSENGER TRAVEL REQUEST</b>
+        
+      </button>
+    </div>
+    <div style="padding:10px 20px;">
+      <button type="button" class="btn btn-primary btn-block bg-navyblue">
+        <b>PASSENGER F.A.Q.S</b>
+      </button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-sm-12">
+    <div>
+      <h5 class="fontColor1">Mission Prioritization</h5>
+      <p>
+        Due to Aircraft and Pilot availability, we are currently serving primarily wounded warriors / veterans from OEF/OIF.
+      </p>
+      <ol>
+        <li>Transport related to service-connected medical needs (convalescent leave included) of service members and veterans of Iraqi Freedom and Enduring Freedom.</li>
+        <li>Transport for family members (close friends) visiting the service members and veterans (OEF/OIF) at medical facilities where they are receiving treatment.</li>
+        <li>Transport of Wounded Warriors to specific events which aid in the healing process (including unit homecoming reunions).</li>
+        <li>Just Ask if you have any question about your travel needs and our resources which are donated by patriots who desire to serve.  </li>
+        <li>We are:  Long on compassion….Short on red tape.</li>
+      </ol>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        Physician's Release Form (only if required)
+      </h5>
+      <p>The attending physician must sign and mail or fax this form to the VAC.</p>
+      <p>Our Physician's Release form is a note from the doctor assuring us that the service member/veteran is not prohibited from riding in a small plane. Click <%= link_to "here", passengers_travel_path %> to get the form.</p>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        Confirmation and scheduling
+      </h5>
+      <p>As soon as we have the required forms, we will call to confirm your mission, then schedule the flight. Once we schedule a plane and pilots, we'll put you in touch with your captain. After that, all scheduling and coordination will take place between you and your captain.</p>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        Rescheduling
+      </h5>
+      <p>The VAC is similar to the commercial airlines in that severe weather, icing and other unforeseen conditions can cause scheduling changes or even cancellations. Stay in contact with your captain, who will let you know if anything changes.</p>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        What to expect
+      </h5>
+      <h6>Captains and copilots</h6>
+      <p>The captains who volunteer with the VAC take their missions and their duty to veterans very seriously. During flights, they typically are not available for social interactions, demonstrations, passenger assistance and so forth. Instead, expect them to concentrate on providing a professional, comfortable and safe flight.</p>
+      <p>Your flight captain is the final authority on all aspects of the flight.</p>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        What's included
+      </h5>
+      <p>VAC volunteers provide air transport between airports. Passengers are responsible for travel between their homes or medical facilities and the airport. Passengers are welcome to bring luggage packed in soft-side suitcases or duffel bags. Total luggage limit per flight is 50 pounds, and prior permission is required for items of unusual size or shape.</p>
+      <h6>Mobility Requirements and medical needs</h6>
+      <p>In order to board and ride safely, passengers must be ambulatory, able to sit upright for up to three hours at a time, and otherwise physically capable of making the trip. We may require a physician's release for the recovering veteran to travel in small airplanes.</p>
+      <p>Your pilot will be focused on providing a safe and comfortable flight. Because of this, in-flight medications must be self-administered, and any passenger who anticipates needing medical assistance of any kind should provide for a medical attendant to ride along on the flight.</p>
+      <h6>Rescheduling</h6>
+      <p>The VAC is similar to the commercial airlines in that severe weather, icing and other unforeseen conditions can cause scheduling changes or even cancellations. Stay in contact with your captain, who will let you know if anything changes.</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <div>
+      <h5 class="fontColor1">
+        Travel Request Form
+      </h5>
+      <p>The veteran or one passenger must fill out the online Travel Request.</p>
+      <p>This form lets us know when and where a trip may be taking place. It's a good idea to fill out a Travel Request form as soon as you're sure you'll need transport. The more notice we have, the more likely it is that we will be able to fulfill your mission. Click <%= link_to "here", passengers_travel_path %> to get the form.</p>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        Mobility requirements and medical needs
+      </h5>
+      <p>In order to board and ride safely, passengers must be able to sit upright for up to three hours at a time, and otherwise physically capable of making the trip. We may require a physician's release for the recovering veteran to travel in small airplanes. Your pilot will be focused on providing a safe and comfortable flight. Because of this, in-flight medications must be self-administered, and any passenger who anticipates needing medical assistance of any kind should provide for a medical attendant to ride along on the flight.</p>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        Ground Transportation
+      </h5>
+      <p>All passengers are responsible for ground transportation to or from the airport.</p>
+      <%= image_tag "fatigues.jpg", class: "img-fluid mx-auto d-block" %>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        The Service Member/Veteran as a passenger
+      </h5>
+      <p>Any Veteran or active duty military person undergoing continuing medical care is eligible for transportation between the medical facility and from his/her home. A medical release from a physician may be required for travel.</p>
+      <h6>Families and friends as passengers <br> Service Member/Veteran status</h6>
+      <p>Passengers are transported to and from the medical facility for the benefit of the service member/veteran, not the passengers. Passenger eligibility requires the service member/veteran to be undergoing continuing medical care, either hospitalized or as an outpatient.</p>
+      <h6>Relationship to the service member/veteran</h6>
+      <p>Passengers must be family or a very close personal friend of the veteran.</p>
+    </div>
+    <div>
+      <h5 class="fontColor1">
+        Requirements for all passengers
+      </h5>
+      <h6>Physical Condition</h6>
+      <ul>
+        <li>Passengers must be ambulatory</li>
+        <li>Passengers must be able to enter and exit small aircraft without help</li>
+        <li>Passengers must be able to sit upright for up to three hours at a time</li>
+        <li>Passengers must be able to travel in unpressurized aircraft</li>
+      </ul>
+    </div>
+  </div>
 </div>
