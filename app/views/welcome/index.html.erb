@@ -46,7 +46,7 @@
 <div class="row" style="padding:0% 5%;">
   <% (0..5).each do |i| %>
     <div class="col-lg-2 col-md-4">
-      <div class="shortcut">
+      <div class="shortcut" style="min-height:200px;">
         <a href="<%= @iconpaths[i]%>">
           <div>
               <%= image_tag ("icons/" + @icons[i] + ".png"), :class => "img-fluid mx-auto d-block" %>
