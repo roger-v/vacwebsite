@@ -1,19 +1,39 @@
-<div class="container-fluid">
-  <div class="row">
-    <h1>This is the Donate page</h1>
+<h1 class="bowlby fontColor1" style="padding-top:2%;">HOW YOU CAN HELP</h1>
+<div class="row">
+  <div class="col-md-6">
+    <h6 class="text-navyblue">
+      There are three things the VAC needs:
+      <ol>
+        <li>Passengers</li>
+        <li>Piloted Planes</li>
+        <li>Money to keep the program going.</li>
+      </ol>
+    </h6>
+    <p><i>
+      You can help bring families together. You can give something back to the soldiers who sacrificed so much. You can be proud to be an American.
+    </i></p>
+    <%= link_to "DONATE NOW", donate_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+    <p><small>
+      The VAC is a 501©(3) nonprofit organization. Donations are absolutely crucial to maintaining our national network of pilots and aircraft owners, in order to facilitate their missions. Thanks to our lean infrastructure, and the passion of our volunteers, donor dollars go a long way. Our goal is to have each $1 donated to the VAC be worth $10 of air transport.
+    </small></p>
   </div>
-  <ul>
-    <li>
-      <%= link_to 'Financial Donors', donors_path %>
-    </li>
-    <li>
-      <%= link_to 'Aircraft Owner and Pilot Recognition', pilot_and_owner_recognition_path %>
-    </li>
-    <li>
-      <%= link_to 'Corporate Sponsors of the VAC', corporate_recognition_path %>
-    </li>
-    <li>
-      <%= link_to 'Memorial Wall', memorial_wall_path %>
-    </li>
-  </ul>
+  <div class="col-md-6">
+    <%= image_tag "Matt-Miles-027.jpg", class: "img-fluid mx-auto d-block" %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-12 mx-auto d-block">
+  <h6 class="text-navyblue">
+    The VAC thanks the generous individuals and organizations who participate in our mission through a variety of ways--
+  </h6>
+    <%= link_to "FINANCIAL DONORS", donors_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+    <%= link_to "AIRCRAFT OWNER & PILOT RECOGNITION", pilot_and_owner_recognition_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+    <%= link_to "CORPORATE SPONSORS OF THE VA", corporate_recognition_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+    <%= link_to "MEMORIAL WALL", memorial_wall_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-3 col-sm-6 col-xs-8">
+  <%= link_to (image_tag "cfc.gif" , {:class => 'img-fluid'}), "http://www.opm.gov/combined-federal-campaign/", :target => '_blank' %>
+  </div>
 </div>
