@@ -1,0 +1,22 @@
+<div class="row" style="padding:10%;">
+  <div class="col-md-3 col-sm-0"></div>
+  <div class="col-md-6 col-sm-12">
+  
+  <h1 class="fontColor1 bowlby">LOG IN</h1>
+  
+  <%= form_for :session, url: login_path do |f| %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: 'form-control', required: true, placeholder: "Enter your e-mail." %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: 'form-control', required: true, autocomplete: "off", placeholder: "Enter your password." %>
+  </p>
+  <p>
+    <%= f.submit "Log in", class: "btn btn-primary", style: "margin-top:10px"  %>
+  </p>
+  <% end %>
+  <br>
+    <p>New user? <%= link_to "Sign up.", signup_path %></p>
+  </div>
+  <div class="col-md-3 col-sm-0"></div>
+  
+</div>

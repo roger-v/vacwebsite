@@ -35,10 +35,10 @@
       </button>
       <div class="navbar-collapse collapse" id="navbarCustom">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <!-- add .active for lighter text -->
-              <%= link_to 'Home', root_path, :class => 'nav-link' %>
-            </li>
+          <%#  <li class="nav-item"> %>
+            <%#   <!-- add .active for lighter text --> %>
+            <%#  <%= link_to 'Home', root_path, :class => 'nav-link' %> %>
+           <%# </li> %>
             <li class="nav-item redfont">
               <%= link_to 'Passengers', passengers_path, :class => 'nav-link redfont' %>
             </li>
@@ -54,11 +54,22 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Contact</a>
             </li>
+            
           </ul>
           <ul class="ml-auto navbar-nav">
-          	<li class="nav-item">
-              <%= link_to 'Log in / Sign up', login_path, :class => 'nav-link' %>
-            </li>
+            <% if logged_in?  %>
+              <li class="nav-item">
+                <%= link_to 'Log out', logout_path, method: :delete, :class => 'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Log in', login_path, :class => 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign up', signup_path, :class => 'nav-link' %>
+              </li>
+            <% end %>
+          	
           </ul>
       </div>
     </nav>

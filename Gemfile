@@ -35,8 +35,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
 gem 'calendar_helper', '~> 0.2.6'
 
 # Use Capistrano for deployment
@@ -51,7 +50,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem "rspec"
   gem "rspec-rails"
-  gem "cucumber-rails"
+  gem "cucumber-rails", :require => false
 
 end
 

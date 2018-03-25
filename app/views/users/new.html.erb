@@ -1,2 +1,35 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="row" style="padding:10%;">
+  <div class="col-md-3 col-sm-0"></div>
+  <div class="col-md-6 col-sm-12">
+  
+  <h1 class="fontColor1 bowlby">SIGN UP</h1>
+  
+  <% if @user.errors.any? %>
+  <h2>The following errors prevented the user from getting created:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+  <%= form_for @user do |f| %>
+    <%= f.label "First name" %><br>
+    <%= f.text_field :firstname, class: 'form-control', required: true, placeholder: "Enter your first name."  %>
+    <%= f.label "Last name" %><br>
+    <%= f.text_field :lastname, class: 'form-control', required: true, placeholder: "Enter your last name."  %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email, class: 'form-control', required: true, placeholder: "Enter a valid e-mail address."  %>
+    <%= f.label :password %><br>
+    <%= f.password_field :password, class: 'form-control', required: true, placeholder: "Enter a valid password." %>
+  </p>
+  <p>
+    <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:10px"  %>
+  </p>
+  <% end %>
+  <br>
+    <p>Already have an account? <%= link_to "Log in instead.", login_path %></p>
+  </div>
+  <div class="col-md-3 col-sm-0"></div>
+  
+</div>

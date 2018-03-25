@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get 'users/new'
+
+  get 'signup' => 'users#new'  
+  
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  
+  resources :users, except: [:new]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
@@ -8,12 +15,6 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   get 'advisory_board' => 'welcome#advisory_board'
-  
-# SIGN UP / LOGIN
-
-  get 'signup' => 'welcome#signup'
-  
-  get 'login' => 'welcome#login'
   
 # PASSENGERS ----------------------
 
