@@ -15,13 +15,13 @@
   
   <%= form_for @user do |f| %>
     <%= f.label "First name" %><br>
-    <%= f.text_field :firstname, class: 'form-control', required: true  %>
+    <%= f.text_field :firstname, class: 'form-control', required: true, placeholder: "Enter your first name."  %>
     <%= f.label "Last name" %><br>
-    <%= f.text_field :lastname, class: 'form-control', required: true  %>
+    <%= f.text_field :lastname, class: 'form-control', required: true, placeholder: "Enter your last name."  %>
     <%= f.label :email %><br>
-    <%= f.text_field :email, class: 'form-control', required: true  %>
+    <%= f.text_field :email, class: 'form-control', required: true, placeholder: "Enter a valid e-mail address."  %>
     <%= f.label :password %><br>
-    <%= f.password_field :password, class: 'form-control', required: true %>
+    <%= f.password_field :password, class: 'form-control', required: true, placeholder: "Enter a valid password." %>
   </p>
   <p>
     <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:10px"  %>
