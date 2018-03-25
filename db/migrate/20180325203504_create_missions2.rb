@@ -1,4 +1,4 @@
-class CreateMissions < ActiveRecord::Migration[5.1]
+class CreateMissions2 < ActiveRecord::Migration[5.1]
   def change
     create_table :missions do |t|
       t.date :date
