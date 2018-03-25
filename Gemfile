@@ -36,8 +36,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 
-gem 'calendar_helper', '~> 0.2.6'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

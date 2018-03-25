@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   
   get 'pilots/faq' => 'pilots#faq'
   
-  get 'pilots/available_missions' => 'pilots#available_missions'
+  get 'pilots/available_missions' => 'missions#index'
   
   resources :missions
   
