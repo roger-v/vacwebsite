@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325203504) do
+ActiveRecord::Schema.define(version: 20180325235433) do
 
   create_table "missions", force: :cascade do |t|
     t.date "date"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180325203504) do
     t.string "lastname"
     t.string "email"
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
 end
