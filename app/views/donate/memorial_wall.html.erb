@@ -1,5 +1,47 @@
 <div class="container-fluid">
   <div class="row">
-    <h1>This is the Memorial Wall page</h1>
+    <div class="col-lg-6 col-sm-12 mx-auto d-block">
+    <%= image_tag "memorial_wall/memorial-wall.png", class: "img-fluid mx-auto d-block" %>
   </div>
+  <center class="container-fluid">
+  <p>The veterans whose names are presented here have served over the years and around the world in times of peace and conflict alike.</p>
+  <p>We honor them for their service, their sacrifices, and their inspiring passion for freedom.</p>
+  <p>Click on a name to learn more about a remarkable veteran.</p>
+  </center>
+  
+  <center class="container-fluid">
+  <p>
+  <b>
+  <font size="6">
+  <%= link_to('LTC J.H. Danner',{:action => 'memorialDanner'}) %>
+  <br>
+  <%= link_to('SPC Christopher "Fergi" Hanson',{:action => 'memorialHanson'}) %>
+  <br>
+  <%= link_to('COL Richard "Dick" Iversen, USAF (Ret)',{:action => 'memorialIversen'}) %>
+  <br>
+  <%= link_to('George W. "Butch" Leyda',{:action => 'memorialLeyda'}) %>
+  <br>
+  <%= link_to('John "Jack" William Mangan, III',{:action => 'memorialMangan'}) %>
+  <br>
+  <%= link_to('Edward Joseph McGovern',{:action => 'memorialMcGovern'}) %>
+  <br>
+  <%= link_to('George ("Poppy") Sylvester Miller Jr.',{:action => 'memorialMiller'}) %>
+  <br>
+  <%= link_to('Jim Petosa',{:action => 'memorialPetosa'}) %>
+  <br>
+  <%= link_to('Thomas F. "Pittsy" Pitts',{:action => 'memorialPitts'}) %>
+  <br>
+  <%= link_to('Sleiman Salibi',{:action => 'memorialSalibi'}) %>
+  </font>
+  </b>
+  </p>
+  </center>
+  
+  
+  </div>
+</div>
+
+
+<div class="col-lg-6 col-sm-12 mx-auto d-block">
+  <%= image_tag "memorial_wall/memorial-wall.png", class: "img-fluid mx-auto d-block" %>
 </div>
