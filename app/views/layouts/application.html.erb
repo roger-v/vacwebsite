@@ -35,6 +35,11 @@
       </button>
       <div class="navbar-collapse collapse" id="navbarCustom">
           <ul class="navbar-nav">
+            <% if is_admin? %>
+              <li class="nav-item">
+                <%= link_to 'Admin', admin_path, :class => 'nav-link' %>
+              </li>
+            <% end %>
             <li class="nav-item">
               <%= link_to 'Passengers', passengers_path, :class => 'nav-link' %>
             </li>

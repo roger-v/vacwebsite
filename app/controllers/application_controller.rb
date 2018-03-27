@@ -1,13 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
-  helper_method :current_user, :logged_in? 
+  helper_method :current_user, :logged_in?, :is_admin?
   #The above line makes these methods available to the views
   
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id] #return user if they're logged in
     #session[:user_id] returns NIL if user is not logged in
-    
+  end
+  
+  def is_admin?
+    return logged_in? && current_user.admin
   end
   
   def logged_in?
