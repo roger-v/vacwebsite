@@ -53,6 +53,16 @@ Rails.application.routes.draw do
   get 'corporate_recognition' => 'donate#corporate_recognition'
   
   get 'memorial_wall' => 'donate#memorial_wall'
+  get 'memorialDanner'=> 'donate#memorialDanner'
+  get 'memorialHanson'=> 'donate#memorialHanson'
+  get 'memorialIversen'=> 'donate#memorialIversen'
+  get 'memorialLeyda'=> 'donate#memorialLeyda'
+  get 'memorialMangan'=> 'donate#memorialMangan'
+  get 'memorialMcGovern'=> 'donate#memorialMcGovern'
+  get 'memorialMiller'=> 'donate#memorialMiller'
+  get 'memorialPetosa'=> 'donate#memorialPetosa'
+  get 'memorialPitts'=> 'donate#memorialPitts'
+  get 'memorialSalibi'=> 'donate#memorialSalibi'
   
 # ------------------------------
 
