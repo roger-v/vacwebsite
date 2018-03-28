@@ -12,19 +12,24 @@ class MissionsController < ApplicationController
     end
     
     def edit
+      if logged_in? && current_user.admin
         @mission = Mission.find(params[:id])
+      end
     end
     
     def create
+      if logged_in? && current_user.admin
          @mission = Mission.new(mission_params)
          if @mission.save
          redirect_to @mission
          else
          render 'new'
          end
+      end
     end
     
     def update
+      if logged_in? && current_user.admin
          @mission = Mission.find(params[:id])
  
          if @mission.update(mission_params)
@@ -32,13 +37,16 @@ class MissionsController < ApplicationController
          else
           render 'edit'
          end
+      end
     end
  
     def destroy
+      if logged_in? && current_user.admin
      @mission = Mission.find(params[:id])
      @mission.destroy
  
      redirect_to missions_path
+      end
     end
     
     def show
