@@ -5,12 +5,14 @@
   <h1 class="fontColor1 bowlby">SIGN UP</h1>
   
   <% if @user.errors.any? %>
-  <h2>The following errors prevented the user from getting created:</h2>
+  <div class="flasherrors">
+  <h6>The following errors prevented the user from getting created:</h6>
     <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>
+    </div>
   <% end %>
   
   <%= form_for @user do |f| %>
@@ -22,6 +24,8 @@
     <%= f.text_field :email, class: 'form-control', required: true, placeholder: "Enter a valid e-mail address."  %>
     <%= f.label :password %><br>
     <%= f.password_field :password, class: 'form-control', required: true, placeholder: "Enter a valid password." %>
+    <%= f.label "Confirm password" %><br>
+    <%= f.password_field :password_confirmation, class: 'form-control', required: true, placeholder: "Enter your password again."  %>
   </p>
   <p>
     <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:10px"  %>

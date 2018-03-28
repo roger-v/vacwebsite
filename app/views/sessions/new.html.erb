@@ -4,6 +4,8 @@
   
   <h1 class="fontColor1 bowlby">LOG IN</h1>
   
+  <%= render 'flasherrors' %>
+  
   <%= form_for :session, url: login_path do |f| %>
     <%= f.label :email %><br>
     <%= f.text_field :email, class: 'form-control', required: true, placeholder: "Enter your e-mail." %>
