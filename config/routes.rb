@@ -6,10 +6,6 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   
-  get 'admin' => 'admin#index'
-  
-  get 'admin/users' => 'admin#users'
-  
   resources :users, except: [:new]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -62,4 +58,11 @@ Rails.application.routes.draw do
 
   get 'create_profile' => 'welcome#create_profile'
   
+# ADMIN ------------------
+  get 'admin' => 'admin#index'
+  
+  get 'admin/users/:page' => 'admin#users', as: "admin_users"
+  
+  delete 'users/:id' => 'users#destroy', as: "delete_user"
+    
 end

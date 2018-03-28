@@ -9,5 +9,6 @@ class AdminController < ApplicationController
     if !is_admin?
       redirect_to root_path
     end
+    @users = User.last(50)
   end
 end

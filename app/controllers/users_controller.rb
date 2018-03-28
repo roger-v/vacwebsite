@@ -15,9 +15,16 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    if is_admin?
+      User.destroy(params[:id]).destroy
+      redirect_back(fallback_location: root_path)
+    end
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :email, :password)
+    params.require(:user).permit(:id, :firstname, :lastname, :email, :password)
   end
 end
