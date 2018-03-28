@@ -28,5 +28,7 @@
 
 
 <a href="mailto:AirBoss@VeteransAirlift.org?subject=I'm interested in the Mission from " + @mission.from + " to " +  @mission.to + " on " + @mission.date>Interested?</a> |
+<% if logged_in? && current_user.admin %>
 <%= link_to 'Edit', edit_mission_path(@mission) %> |
+<% end %>
 <%= link_to 'Done', missions_path %>

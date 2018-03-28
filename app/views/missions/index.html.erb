@@ -52,13 +52,17 @@
       <td><%= mission.passengers %></td>
       <td><%= mission.weight %></td>
       <td><%= link_to 'Show', mission_path(mission) %></td>
+      <% if logged_in? && current_user.admin %>
       <td><%= link_to 'Edit', edit_mission_path(mission) %></td>
       <td><%= link_to 'Delete', mission_path(mission),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
+      <% end %>    
     </tr>
   <% end %>
 </table>
- <%= link_to 'Add new mission', new_mission_path %>
+ <% if logged_in? && current_user.admin %>
+   <%= link_to 'Add new mission', new_mission_path %>
+ <% end %>
  </div>
 </div>
