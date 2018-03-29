@@ -19,6 +19,8 @@ class UsersController < ApplicationController
       user = User.find_by(id: params[:id])
       if !user.admin
         user.destroy
+      else 
+        flash[:error] = "#{user.firstname} #{user.lastname} is an administrator. You cannot delete admins."
       end
       redirect_back(fallback_location: root_path)
     end
