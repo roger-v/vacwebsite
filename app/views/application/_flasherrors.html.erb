@@ -1,0 +1,6 @@
+<% if flash[:error] %>
+<div class="flasherrors">
+  <h6>An error has occurred: </h6>
+  <%= content_tag :p, flash[:error] %>
+</div>
+<% end %>

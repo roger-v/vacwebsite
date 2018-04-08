@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20180329173856) do
     t.boolean "veteran", default: false
     t.boolean "pilot", default: false
     t.boolean "donor", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
