@@ -12,6 +12,9 @@
       <%= f.email_field :email, class: 'form-control', required: true %>
       <%= f.label "Password *" %>
       <%= f.password_field :password, class: 'form-control', required: true %>
+      <%= f.check_box :veteran %> <%= f.label "Veteran", style: "margin-top:10px" %>
+      <%= f.check_box :pilot %> <%= f.label "Pilot", style: "margin-top:10px" %>
+      <%= f.check_box :donor %> <%= f.label "Donor", style: "margin-top:10px" %>
       <%= f.check_box :rememberme %> <%= f.label "Remember Me", style: "margin-top:10px" %>
       <br>
       <div class="btn btn-primary" style="margin-top:10px">

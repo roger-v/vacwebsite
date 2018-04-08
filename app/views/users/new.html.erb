@@ -22,6 +22,14 @@
     <%= f.text_field :email, class: 'form-control', required: true, placeholder: "Enter a valid e-mail address."  %>
     <%= f.label :password %><br>
     <%= f.password_field :password, class: 'form-control', required: true, placeholder: "Enter a valid password." %>
+    <%= f.check_box :veteran %>
+    <%= f.label "Check if you need a Flight", style: "margin-top:10px" %><br>
+    <%= f.check_box :pilot %>
+    <%= f.label "Check if you wish to Pilot for us", style: "margin-top:10px" %><br>
+    <%= f.check_box :donor %>    
+    <%= f.label "Check if you are a Donor", style: "margin-top:10px" %><br>
+
+
   </p>
   <p>
     <%= f.submit "Sign up", class: "btn btn-primary", style: "margin-top:10px"  %>
