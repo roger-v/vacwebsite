@@ -1,13 +1,24 @@
 class AdminController < ApplicationController
   before_action :verify_admin
+  @@sortby = nil
   def index
     
   end
   
   def users 
+    if (params[:sortby] != nil) 
+      @@sortby = params[:sortby]
+    elsif (params[:sortby] == @@sortby)
+      #switch order.
+      
+    end
     @page = params[:page].to_i
     @limit = 3
-    @users = User.limit(@limit).offset(@limit*(@page - 1));
+    if (@@sortby)
+      @users = User.order(@@sortby).limit(@limit).offset(@limit*(@page - 1));
+    else
+      @users = User.limit(@limit).offset(@limit*(@page - 1));
+    end
     @num_pages = (User.all.length / @limit) + 1
     @i = 1 + ((@page - 1) * @limit)
     if @page > @num_pages || @page < 1
