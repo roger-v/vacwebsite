@@ -6,7 +6,7 @@ class AdminController < ApplicationController
   
   def users 
     @page = params[:page].to_i
-    @limit = 50
+    @limit = 3
     @users = User.limit(@limit).offset(@limit*(@page - 1));
     @num_pages = (User.all.length / @limit) + 1
     @i = 1 + ((@page - 1) * @limit)
