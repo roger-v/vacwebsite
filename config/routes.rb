@@ -73,6 +73,10 @@ Rails.application.routes.draw do
   
   get 'admin/users/:page' => 'admin#users', as: "admin_users"
   
+  get "admin/email" => "admin#email", as: "admin_email"
+  
+  post "admin/email" => "admin#send_email", as: "admin_send_email"
+  
   delete 'users/:id' => 'users#destroy', as: "delete_user"
     
 end
