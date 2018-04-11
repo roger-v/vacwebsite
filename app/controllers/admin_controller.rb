@@ -30,7 +30,7 @@ class AdminController < ApplicationController
       redirect_to admin_users_path(page: 1)
     end
 
-    @users = User.last(50)
+    #@users = User.last(@limit)
     
     #End User Sort
     
@@ -38,8 +38,8 @@ class AdminController < ApplicationController
     
     #Begin User Search function
     
-    @all_users = User.all
-    @users = User.all
+    #@all_users = User.all
+    #@users = User.all
 =begin
     if params[:search]
       #@users = User.search(params[:search]).order("created_at DESC")
