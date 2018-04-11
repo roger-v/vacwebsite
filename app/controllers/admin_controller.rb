@@ -6,6 +6,11 @@ class AdminController < ApplicationController
   end
   
   def users 
+    
+    
+   
+    #Begin User Sort
+    
     if (params[:sortby] != nil) 
       @@sortby = params[:sortby]
     elsif (params[:sortby] == @@sortby)
@@ -25,9 +30,13 @@ class AdminController < ApplicationController
       redirect_to admin_users_path(page: 1)
     end
 
-
-
     @users = User.last(50)
+    
+    #End User Sort
+    
+    
+    
+    #Begin User Search function
     
     @all_users = User.all
     @users = User.all
@@ -40,7 +49,7 @@ class AdminController < ApplicationController
     end
 =end
 
-    #User Search function
+    
     
     if params[:search]
       #@users = User.where(:firstname => params[:search]) + User.where(:lastname => params[:search]) + User.where(:email => params[:search])
@@ -68,6 +77,9 @@ class AdminController < ApplicationController
     #@movies = Movie.where(:rating => selected_ratings_keys)
     #@users = User.where(:firstname => "Kyle")
     
+    #End User Search
+    
+    #@users = User.where(:firstname => "Kyle")
 
   end
   
@@ -84,7 +96,7 @@ class AdminController < ApplicationController
   
   def verify_admin
     redirect_to root_path unless is_admin?
->>>>>>> 7d69b33c58c320c50a0b2d0a4573c8864e00e5ac
+
   end
   
 end
