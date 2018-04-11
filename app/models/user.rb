@@ -13,4 +13,9 @@ class User < ApplicationRecord
     has_secure_password
     
     validates :password, presence: true, length: { minimum: 8, maximum: 255  }
+
+    def self.search(search)
+      where("firstname LIKE ? OR lastname LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+    end
+
 end

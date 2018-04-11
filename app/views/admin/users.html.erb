@@ -3,12 +3,40 @@
   <div class="col-12">
     <%= render "flasherrors" %>
     <p>Showing <%= [50, @users.size].min %> out of <%= @users.size %> results.</p>
+    
+    <form name="size">
+    <input type="checkbox" name="size[]" value="Admin" <%= @users.include?("Admin") ? "checked" : "" %> /> Admin
+    <input type="checkbox" name="size[]" value="Pilot" <%= @users.include?("2") ? "checked" : "" %> /> Pilot
+    <input type="checkbox" name="size[]" value="Veteran" <%= @users.include?("3") ? "checked" : "" %> /> Veteran
+    <input type="checkbox" name="size[]" value="Donor" <%= @users.include?("3") ? "checked" : "" %> /> Donor
+    <input type="submit" value="Filter" /><br></form>
+
+    <%= radio_button_tag(:search_attr, "firstname") %>
+    <%= label_tag(:search_attr_firstname, "First Name") %>
+    <%= radio_button_tag(:search_attr, "lastname") %>
+    <%= label_tag(:search_attr_lastname, "Last Name") %>
+    <%= radio_button_tag(:search_attr, "email") %>
+    <%= label_tag(:search_attr_email, "Email") %>
+    
+    <%= form_tag(admin_users_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+    <%= submit_tag "Search", :name => nil %>
+    <% end %>
+    
+    <% if @users.blank? %>
+    <h4>There are no Users containing the term <%= params[:search] %>.</h4>
+    <% end %>
+    
     <div class="table-responsive">
       <table class="table">
         <tr>
           <th>First Name</th>
           <th>Last Name</th>
           <th>E-mail</th>
+          <th>Admin Status</th>
+          <th>Pilot Status</th>
+          <th>Veteran Status</th>
+          <th>Donor Status</th>
           <th>User since</th>
           <th>Last updated</th>
           <th></th>
@@ -18,6 +46,11 @@
           <td><%= u.firstname  %></td>
           <td><%= u.lastname %></td>
           <td><%= u.email %></td>
+          <td><%= u.admin %></td>
+          <td><%= u.pilot %></td>
+          <td><%= u.veteran %></td>
+          <td><%= u.donor %></td>
+          
           <td><%= u.created_at.strftime("%-m/%-d/%y") %></td>
           <td><%= u.updated_at.strftime("%-m/%-d/%y") %></td>
           <td><%= link_to "Delete", delete_user_path(u.id), method: :delete, data: { confirm: 
