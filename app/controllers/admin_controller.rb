@@ -27,6 +27,8 @@ class AdminController < ApplicationController
     if @page > @num_pages || @page < 1
       redirect_to admin_users_path(page: 1)
     end
+
+    #@users = User.last(@limit)
     
 #End User Sort
     

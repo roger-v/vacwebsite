@@ -47,13 +47,13 @@
           <th><%= link_to "First Name", admin_users_path(page: 1, sortby: :firstname) %></th>
           <th><%= link_to "Last Name", admin_users_path(page: 1, sortby: :lastname) %></th>
           <th><%= link_to "E-mail", admin_users_path(page: 1, sortby: :email) %></th>
+          <th><%= link_to "User Since", admin_users_path(page: 1, sortby: :created_at) %></th>
+          <th><%= link_to "Last updated", admin_users_path(page: 1, sortby: :updated_at) %></th>
           <th>Admin Status</th>
           <th>Pilot Status</th>
           <th>Veteran Status</th>
           <th>Donor Status</th>
-          <th><%= link_to "User Since", admin_users_path(page: 1, sortby: :created_at) %></th>
-          <th><%= link_to "Last updated", admin_users_path(page: 1, sortby: :updated_at) %></th>
-
+          
           <th></th>
         </tr>
         <% @users.each do |u|  %>
@@ -62,13 +62,12 @@
           <td><%= u.firstname  %></td>
           <td><%= u.lastname %></td>
           <td><%= u.email %></td>
+          <td><%= u.created_at.strftime("%-m/%-d/%y") %></td>
+          <td><%= u.updated_at.strftime("%-m/%-d/%y") %></td>
           <td><%= u.admin %></td>
           <td><%= u.pilot %></td>
           <td><%= u.veteran %></td>
           <td><%= u.donor %></td>
-          
-          <td><%= u.created_at.strftime("%-m/%-d/%y") %></td>
-          <td><%= u.updated_at.strftime("%-m/%-d/%y") %></td>
           <td><%= link_to "Delete", delete_user_path(u.id), method: :delete, data: { confirm: 
             'Are you sure you want to delete ' + u.firstname + " " + u.lastname + "?" 
           } %></td>
