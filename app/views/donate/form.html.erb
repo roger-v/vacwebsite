@@ -39,7 +39,7 @@
     <%= f.label "City" %>
     <%= f.text_field :city, class: 'form-control' %>
     <%= f.label "State" %>
-    <%= select_tag :state, options_for_select(us_states), class: 'form-control' %><br>
+    <%= select_tag "donation[state]", options_for_select(us_states), id: 'donation_state', class: 'form-control' %><br>
     <%= f.label "Zip Code" %>
     <%= f.text_field :zipcode, class: 'form-control' %>
     <%= f.label "Phone Number" %>
@@ -48,13 +48,13 @@
     <%= f.text_field :email, class: 'form-control' %>
     <%= f.label "Amount *" %>
     <%= f.text_field :amount, class: 'form-control', placeholder: 'Please enter a donation amount in USD (required).', required: true %>
-    <h5 class="fontColor1">Donation Campaign</h5>
+    <br><h5 class="fontColor1">Donation Campaign</h5>
     <p>If you'd like your donation to be associated with a specific VAC fundraising program or campaign, please indicate your selection below (leave blank if you have no specific designation):</p>
-    <%= select_tag :campaign, options_for_select(donation_campaigns), class: 'form-control' %>
-    <h5 class="fontColor1">Donor Recognition</h5>
+    <%= select_tag "donation[campaign]", options_for_select(donation_campaigns), id: 'donation_campaign', class: 'form-control' %>
+    <br><h5 class="fontColor1">Donor Recognition</h5>
     <p>
-      <%= check_box_tag :anonymous, class: 'form-control' %>
-      I prefer that my name remain anonymous (checking this box will keep your name off of the donor recognition page) 
+      <%= check_box_tag "donation[anonymous]", id: 'donation_anonymous', class: 'form-control' %>
+      I prefer that my name remain anonymous  (checking this box will keep your name off of the donor recognition page) 
     </p>
     <p>
       If you would like the name displayed on our recognition page to be something other than the first name and last name entered above, please enter that here exactly as you would like it displayed:
