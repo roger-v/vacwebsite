@@ -14,6 +14,13 @@ class DonateController < ApplicationController
   def memorial_wall
     
   end
+  def form
+    @donation = Donation.new
+    
+  end
+  def submit
+    puts "SubmitteDDD"
+  end
 end
 
 #Kyle Edit Test

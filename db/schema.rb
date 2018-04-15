@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180329173856) do
+ActiveRecord::Schema.define(version: 20180414022535) do
+
+  create_table "donations", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.string "phone"
+    t.string "email"
+    t.integer "amount"
+    t.string "campaign"
+    t.boolean "anonymous"
+    t.string "donoralias"
+    t.string "honoree"
+    t.boolean "confirmed", default: false
+  end
 
   create_table "missions", force: :cascade do |t|
     t.date "date"
@@ -28,11 +45,11 @@ ActiveRecord::Schema.define(version: 20180329173856) do
     t.string "email"
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean "veteran", default: false
     t.boolean "pilot", default: false
     t.boolean "donor", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
