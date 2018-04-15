@@ -18,9 +18,6 @@ class DonateController < ApplicationController
     @donation = Donation.new
     
   end
-  def submit
-    puts "SubmitteDDD"
-  end
 end
 
 #Kyle Edit Test

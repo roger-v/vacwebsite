@@ -3,6 +3,16 @@
   
   <div class="col-12">
     <h1 class="fontColor1 bowlby">DONATION FORM</h1>
+    <% if @donation.errors.any? %>
+    <div class="flasherrors">
+      <h6>The following errors prevented the donation from being submitted:</h6>
+        <ul>
+          <% @donation.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <p>
       You may use your credit card to make a secure online donation to the VAC. In order to assure your payment is handled in the most secure manner, we use PayPal, the internet leader in online payments, to process your donation!  Don't worry, you don't need a PayPal account to donate online. 
     </p>
@@ -54,8 +64,8 @@
     <%= f.text_field :email, class: 'form-control' %>
   </div>
   <div class="col-12">
-    <%= f.label "Amount" %>
-    <%= f.text_field :amount, class: 'form-control', placeholder: 'Please enter a donation amount in USD.' %>
+    <%= f.label "Amount *" %>
+    <%= f.text_field :amount, class: 'form-control', placeholder: 'Please enter a donation amount in USD (required).', required: true %>
     <h5 class="fontColor1">Donation Campaign</h5>
     <p>If you'd like your donation to be associated with a specific VAC fundraising program or campaign, please indicate your selection below (leave blank if you have no specific designation):</p>
     <%= select_tag :campaign, options_for_select(donation_campaigns), class: 'form-control' %>
@@ -66,15 +76,17 @@
     </p>
     <p>
       If you would like the name displayed on our recognition page to be something other than the first name and last name entered above, please enter that here exactly as you would like it displayed:
-      <br><%= f.text_field :donoralias, class: 'form-control', placeholder: 'Enter your alias here' %>
+      <br>
+      <%= f.text_field :donoralias, class: 'form-control', placeholder: 'Enter your alias here' %>
     </p>
     <h5 class="fontColor1">Donation Honoree</h5>
     <p>
       If you are making this donation in honor of another person, please enter their name below and it will be included on our donor recognition page:
     </p>
     <%= f.text_field :honoree, class: 'form-control', placeholder: 'Honoree name' %>
-    <%= f.submit "Proceed to Payment" %>
-    
+    <br>
+    <%= f.submit "Proceed to Payment", class: 'mx-auto d-block' %>
+    <br>
     <% end %>
   </div>
 </div>

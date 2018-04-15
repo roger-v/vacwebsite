@@ -2,7 +2,11 @@ class DonationsController < ApplicationController
   
   def create
     @donation = Donation.new(donation_params)
-    puts "name-: " + "#{@donation.firstname}"
+    if @donation.save
+      
+    else
+      render "donate/form"
+    end
     
   end
   
