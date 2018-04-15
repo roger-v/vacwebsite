@@ -6,13 +6,24 @@
     <p>Showing <%= [@limit, @users.size].min %> out of <%= @users.size %> results.</p>
     <p>There are a total of <%= @num_pages %> pages.</p>
     
-    <form name="size">
-    <input type="checkbox" name="size[]" value="Admin" <%= @users.include?("Admin") ? "checked" : "" %> /> Admin
-    <input type="checkbox" name="size[]" value="Pilot" <%= @users.include?("2") ? "checked" : "" %> /> Pilot
-    <input type="checkbox" name="size[]" value="Veteran" <%= @users.include?("3") ? "checked" : "" %> /> Veteran
-    <input type="checkbox" name="size[]" value="Donor" <%= @users.include?("3") ? "checked" : "" %> /> Donor
-    <input type="submit" value="Filter" /><br></form>
 
+    <%= form_tag(admin_users_path, :method => "get", id: "filter-form") do %>
+    <%= check_box_tag(:filter_admin) %>
+    <%= label_tag(:filter_admin_1, "Admin") %>
+    <%= check_box_tag(:filter_pilot) %>
+    <%= label_tag(:filter_pilot_1, "Pilot") %>
+    <%= check_box_tag(:filter_veteran) %>
+    <%= label_tag(:filter_veteran_1, "Veteran") %>
+    <%= check_box_tag(:filter_donor) %>
+    <%= label_tag(:filter_donor_1, "Donor") %>
+    <%= submit_tag "Filter", :name => nil %>
+    <% end %>
+    
+    
+    
+    <%= form_tag(admin_users_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
+    
     <%= radio_button_tag(:search_attr, "firstname") %>
     <%= label_tag(:search_attr_firstname, "First Name") %>
     <%= radio_button_tag(:search_attr, "lastname") %>
@@ -20,13 +31,11 @@
     <%= radio_button_tag(:search_attr, "email") %>
     <%= label_tag(:search_attr_email, "Email") %>
     
-    <%= form_tag(admin_users_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
     <%= submit_tag "Search", :name => nil %>
     <% end %>
     
     <% if @users.blank? %>
-    <h4>There are no Users containing the term <%= params[:search] %>.</h4>
+    <h4>There are no Users with the selected attribute containing the term <%= params[:search] %>.</h4>
     <% end %>
     
     

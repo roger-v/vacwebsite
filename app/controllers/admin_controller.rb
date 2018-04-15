@@ -7,9 +7,7 @@ class AdminController < ApplicationController
   
   def users 
     
-    
-   
-    #Begin User Sort
+#Begin User Sort
     
     if (params[:sortby] != nil) 
       @@sortby = params[:sortby]
@@ -20,66 +18,96 @@ class AdminController < ApplicationController
     @page = params[:page].to_i
     @limit = 3
     if (@@sortby)
-      @users = User.order(@@sortby).limit(@limit).offset(@limit*(@page - 1));
+      @users = User.order(@@sortby).limit(@limit).offset(@limit*(@page - 1))
     else
-      @users = User.limit(@limit).offset(@limit*(@page - 1));
+      @users = User.limit(@limit).offset(@limit*(@page - 1))
     end
     @num_pages = (User.all.length / @limit) + 1
     @i = 1 + ((@page - 1) * @limit)
     if @page > @num_pages || @page < 1
       redirect_to admin_users_path(page: 1)
     end
+    
+#End User Sort
+    
+    #@users = User.all
+ 
+#Begin User Search function
 
-    @users = User.last(50)
-    
-    #End User Sort
-    
-    
-    
-    #Begin User Search function
-    
-    @all_users = User.all
-    @users = User.all
-=begin
-    if params[:search]
-      #@users = User.search(params[:search]).order("created_at DESC")
-      @all_users = User.find_by(firstname: params[:search])
-    else
-      @all_users = User.all.order("created_at DESC")
-    end
-=end
-
-    
+    #Using built-in Where function
     
     if params[:search]
-      #@users = User.where(:firstname => params[:search]) + User.where(:lastname => params[:search]) + User.where(:email => params[:search])
-      @users = User.where(:firstname => params[:search])
       
       if params[:search_attr] == "firstname"
-        @users = User.where(:firstname => params[:search])
-      end
+        @search_users = @users.where(:firstname => params[:search])
       
-      if params[:search_attr] == "lastname"
-        @users = User.where(:lastname => params[:search])
-      end
+      elsif params[:search_attr] == "lastname"
+        @search_users = @users.where(:lastname => params[:search])
       
-      if params[:search_attr] == "email"
-        @users = User.where(:email => params[:search])
+      elsif params[:search_attr] == "email"
+        @search_users = @users.where(:email => params[:search])
+      
+      else
+        @search_users = @users.where(:firstname => params[:search]) + User.where(:lastname => params[:search]) + User.where(:email => params[:search])
       end
       
     end
     
     if params[:search] == ""
-      @users = User.all
+      @search_users = @users #User.all
     end
+ 
+#End User Search
 
-    #@users = @all_users
-    #@movies = Movie.where(:rating => selected_ratings_keys)
-    #@users = User.where(:firstname => "Kyle")
+
+
+#Begin User Filter
     
-    #End User Search
+    if params[:filter_admin] == '1'
+      @admin_users = @users.where(:admin => true)
+    else
+      @admin_users = []
+    end
     
-    #@users = User.where(:firstname => "Kyle")
+    if params[:filter_pilot] == '1'
+      @pilot_users = @users.where(:pilot => true)
+    else
+      @pilot_users = []
+    end
+    
+    if params[:filter_veteran] == '1'
+      @veteran_users = @users.where(:veteran => true)
+    else
+      @veteran_users = []
+    end
+    
+    if params[:filter_donor] == '1'
+      #@users = @users.where(:donor => true)
+      @donor_users = @users.where("donor = :donor", { donor: true})
+    else
+      @donor_users = []
+    end
+   
+    @filter_users = @admin_users | @pilot_users | @veteran_users | @donor_users
+    
+#End User Filter
+    
+    
+#Begin User Array Selection
+
+    #If a search was entered, use search_users array
+    #Else, If filters were applied, use @filter_users array
+    #Else, use the given array (that was probably sorted)
+    
+    if params[:search]
+      @users = @search_users
+    elsif @filter_users != []
+      @users = @filter_users
+    else
+      @users = @users
+    end
+    
+#End User Array Selection
 
   end
   
