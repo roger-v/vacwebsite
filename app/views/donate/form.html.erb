@@ -25,45 +25,27 @@
     <p>
       To make an online donation, please fill out the following information and press the Proceed to Payment button below.
     </p>
-    <h5 class="fontColor1">Donor Information</h5>
-  </div>
-  <div class="col-md-6 col-sm-12">
-    <%= form_for @donation do |f| %>
-      
     
+  </div>
+  <div class="col-lg-6 col-sm-8 col-xs-12 mx-auto d-block">
+    <h5 class="fontColor1">Donor Information</h5>
+    <%= form_for @donation do |f| %>
     <%= f.label "First name" %>
     <%= f.text_field :firstname, class: 'form-control' %>
-  </div>
-  <div class="col-md-6 col-sm-12">
     <%= f.label "Last name" %>
     <%= f.text_field :lastname, class: 'form-control' %>
-  </div>
-  <div class="col-lg-3 col-md-6">
     <%= f.label "Address" %>
     <%= f.text_field :address, class: 'form-control' %>
-  </div>
-  <div class="col-lg-3 col-md-6">
     <%= f.label "City" %>
     <%= f.text_field :city, class: 'form-control' %>
-  </div>
-  <div class="col-lg-3 col-md-6">
     <%= f.label "State" %>
     <%= select_tag :state, options_for_select(us_states), class: 'form-control' %><br>
-  </div>
-  <div class="col-lg-3 col-md-6">
     <%= f.label "Zip Code" %>
     <%= f.text_field :zipcode, class: 'form-control' %>
-  </div>
-  
-  <div class="col-md-6 col-sm-12">
     <%= f.label "Phone Number" %>
     <%= f.text_field :phone, class: 'form-control', placeholder: 'XXX-XXX-XXXX' %>
-  </div>
-  <div class="col-md-6 col-sm-12">
     <%= f.label "Email Address" %>
     <%= f.text_field :email, class: 'form-control' %>
-  </div>
-  <div class="col-12">
     <%= f.label "Amount *" %>
     <%= f.text_field :amount, class: 'form-control', placeholder: 'Please enter a donation amount in USD (required).', required: true %>
     <h5 class="fontColor1">Donation Campaign</h5>
