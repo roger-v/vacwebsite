@@ -30,6 +30,14 @@ class DonationsController < ApplicationController
     )
   end
   
+  def destroy
+    if is_admin?
+      donation = Donation.find_by(id: params[:id])
+      donation.destroy
+      redirect_back(fallback_location: root_path)
+    end
+  end
+  
   private
   
   def paypal_url(amt)

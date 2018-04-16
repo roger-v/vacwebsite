@@ -16,8 +16,6 @@ class CreateDonations < ActiveRecord::Migration[5.1]
       t.boolean :anonymous
       t.string :donoralias
       t.string :honoree
-      
-      t.timestamp
     end
   end
 end
