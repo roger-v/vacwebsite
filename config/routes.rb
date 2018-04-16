@@ -25,12 +25,14 @@ Rails.application.routes.draw do
   get 'passengers/faq' => 'passengers#faq'
   
 # PILOTS ----------------------
+
+  resources :registrations
   
   get 'pilots' => 'pilots#index'
   
-  get 'pilots/register' => 'pilots#register'
+  get 'pilots/form' => 'pilots#form'
   
-  get 'aircraft_registration' => 'pilots#aircraft_registration'
+  get 'aircraft_registration' => 'pilots#form'
   
   get 'pilots/faq' => 'pilots#faq'
   

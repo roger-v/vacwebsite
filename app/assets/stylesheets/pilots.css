@@ -1,0 +1,12 @@
+.join_wing {
+float: left;
+padding: 10px 150px 0px 5px;
+
+}
+
+.form {
+  display: none;
+}
+.form.active {
+  display: block
+}
