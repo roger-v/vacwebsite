@@ -113,6 +113,49 @@ class AdminController < ApplicationController
 
   end
   
+  def donations
+    
+    if (params[:sortby] != nil) 
+      @@sortby = params[:sortby]
+    elsif (params[:sortby] == @@sortby)
+      #switch order.
+      
+    end
+    @page = params[:page].to_i
+    @limit = 3
+    if (@@sortby)
+      @donations = Donation.order(@@sortby).limit(@limit).offset(@limit*(@page - 1));
+    else
+      @donations = Donation.limit(@limit).offset(@limit*(@page - 1));
+    end
+    @num_pages = (Donation.all.length / @limit) + 1
+    @i = 1 + ((@page - 1) * @limit)
+    if @page > @num_pages || @page < 1
+      redirect_to admin_donations_path(page: 1)
+    end
+    
+    if params[:search]
+      @donations = Donation.where(:firstname => params[:search])
+      
+      if params[:search_attr] == "firstname"
+        @donations = Donation.where(:firstname => params[:search])
+      end
+      
+      if params[:search_attr] == "lastname"
+        @donations = Donation.where(:lastname => params[:search])
+      end
+      
+      if params[:search_attr] == "email"
+        @donations = Donation.where(:email => params[:search])
+      end
+      
+    end
+    
+    if params[:search] == ""
+      @donations = Donation.all
+    end
+  end
+  
   def email
     
   end

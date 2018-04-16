@@ -14,6 +14,10 @@ class DonateController < ApplicationController
   def memorial_wall
     
   end
+  def form
+    @donation = Donation.new
+    
+  end
 end
 
 #Kyle Edit Test
