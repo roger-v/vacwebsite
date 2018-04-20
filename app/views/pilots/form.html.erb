@@ -1,3 +1,6 @@
+
+
+
 <div class="container-fluid">
   <div class="row">
     <h1 class="bowlby fontColor1" style="padding-top:2%;">PILOT REGISTRATION</h1>
@@ -9,10 +12,24 @@
   <link rel="stylesheet" type="text/css" href="pilots.css">
 </head>
 
-    
+
+
+  
+  
  <div class="row">
    <div class="col-md-6 col-sm-12">
   
+  <% if @registration.errors.any? %>
+    <div class="flasherrors">
+      <h6>The following errors prevented the registration from being submitted:</h6>
+        <ul>
+          <% @registration.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
    <p>
   <link rel="stylesheet" href="pilots.scss">
      <h4 class="fontColor10"><b>Join on our Wing</b></h4>
@@ -33,26 +50,26 @@
     
     <div style="background-color:#f2f2f2;color:black;padding:20px;">
     <h5><b>Contact Information</b></h5>
-    <%= f.label "First name"%> 
-    <%= f.text_field :firstname%>
+    <%= f.label "First name *"%> 
+    <%= f.text_field :firstname, required: true%>
     &emsp;
     <%= f.label "Middle name" %>
     <%= f.text_field :middlename%>
     &emsp;
-    <%= f.label "Last name" %>
-    <%= f.text_field :lastname%>
+    <%= f.label "Last name *" %>
+    <%= f.text_field :lastname, required: true%>
     <br>
-    <%= f.label "Address:" %>
-    <%= f.text_field :address%>
+    <%= f.label "Address *" %>
+    <%= f.text_field :address, required: true%>
     &emsp;
-    <%= f.label "City" %>
-    <%= f.text_field :city%>
+    <%= f.label "City *" %>
+    <%= f.text_field :city, required: true%>
     &emsp;
-    <%= f.label "State" %>
-    <%= select_tag "registration[state]", options_for_select(us_states), id: 'registration_state'%>
+    <%= f.label "State *" %>
+    <%= select_tag "registration[state]", options_for_select(us_states), id: 'registration_state', required: true%>
     &emsp;
-    <%= f.label "Zip Code" %>
-    <%= f.text_field :zipcode%>
+    <%= f.label "Zip Code *" %>
+    <%= f.text_field :zipcode, required: true%>
     <br>
     <%= f.label "Home Phone Number"%>
     <%= f.text_field :homephone%>
@@ -72,8 +89,8 @@
     <%= label_tag :prefermobile, 'Mobile' %>
     <br>
     <br>
-    <%= f.label "Email Address" %>
-    <%= f.text_field :email%>
+    <%= f.label "Email Address *" %>
+    <%= f.text_field :email, required: true%>
     <br>
     <br>
     <%= f.label "Tell us about yourself" %>
@@ -301,11 +318,12 @@
     
     <%= f.submit "Submit Application", class: 'mx-auto d-block' %>
     <br>
-    <%= f.button "Cancel Application", class: 'mx-auto d-block' %>
-    <br>
+
 
     
     <% end %>
+    
+
     
     </div>
    
