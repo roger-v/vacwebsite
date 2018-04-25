@@ -32,7 +32,15 @@ class RegistrationsController < ApplicationController
          
     end
     
+    def destroy
+      if is_admin?
+      registration = Registration.find_by(id: params[:id])
+      registration.destroy
+      redirect_back(fallback_location: root_path)
+      end
+    end
     
+ 
     private
     
     def registration_params
@@ -78,5 +86,6 @@ class RegistrationsController < ApplicationController
       :pilotanon
     )
     end
+    
     
 end

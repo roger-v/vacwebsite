@@ -83,6 +83,49 @@ class AdminController < ApplicationController
 
   end
   
+   def registrations
+    
+    if (params[:sortby] != nil) 
+      @@sortby = params[:sortby]
+    elsif (params[:sortby] == @@sortby)
+      #switch order.
+      
+    end
+    @page = params[:page].to_i
+    @limit = 3
+    if (@@sortby)
+      @registrations = Registration.order(@@sortby).limit(@limit).offset(@limit*(@page - 1));
+    else
+      @registrations = Registration.limit(@limit).offset(@limit*(@page - 1));
+    end
+    @num_pages = (Registration.all.length / @limit) + 1
+    @i = 1 + ((@page - 1) * @limit)
+    if @page > @num_pages || @page < 1
+      redirect_to admin_registrations_path(page: 1)
+    end
+    
+    if params[:search]
+      @registrations = Registration.where(:firstname => params[:search])
+      
+      if params[:search_attr] == "firstname"
+        @registrations = Registration.where(:firstname => params[:search])
+      end
+      
+      if params[:search_attr] == "lastname"
+        @registrations = Registration.where(:lastname => params[:search])
+      end
+      
+      if params[:search_attr] == "email"
+        @registrations = Registration.where(:email => params[:search])
+      end
+      
+    end
+    
+    if params[:search] == ""
+      @registrations = Registration.all
+    end
+   end
+  
   def email
     
   end
