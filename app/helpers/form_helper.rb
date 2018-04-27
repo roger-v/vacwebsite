@@ -59,6 +59,7 @@ module FormHelper
   
   def license_type
     [
+      [''],
       ['Private'],
       ['Commercial'],
       ['ATP']
