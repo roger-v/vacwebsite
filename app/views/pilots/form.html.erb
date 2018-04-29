@@ -49,6 +49,20 @@
     <%= form_for @registration do |f| %>
     
     <div style="background-color:#f2f2f2;color:black;padding:20px;">
+    <h5><b>Type of Registration</b></h5>
+    <p>You must select one of the following (NOTE: Instrument rating required)</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <label><input type="radio" class="form-switch" name="typeoptions" value="both", data-id="a" required> I am registering as a pilot and I am register an aircraft that I fly </label>
+    <br>
+    <label><input type="radio" class="form-switch" name="typeoptions" value="aircraft",  data-id="b" required> I am only registering an aircraft</label>
+    <br>
+    <label><input type="radio" class="form-switch" name="typeoptions" value="pilot", data-id="c" required> I am only registering as a pilot </label>
+
+    </div>
+    <br>
+    
+    <div style="background-color:#f2f2f2;color:black;padding:20px;">
     <h5><b>Contact Information</b></h5>
     <%= f.label "First name *"%> 
     <%= f.text_field :firstname, required: true%>
@@ -98,30 +112,6 @@
     <%= f.text_area :description, class: 'form-control' %>
     </div> 
     
-    <br>
-    
-    <div style="background-color:#f2f2f2;color:black;padding:20px;">
-    <h5><b>Type of Registration</b></h5>
-    <p>You must select one of the following (NOTE: Instrument rating required)</p>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <!--
-    <%= radio_button_tag :registertype, 'both', name="type" %>
-    <%= label_tag :registertype_both, 'I am registering a a pilot and I am register an aircraft that I fly' %>
-    <br>
-    <%= radio_button_tag :registertype, 'aircraft', name="type"%>
-    <%= label_tag :registertype_aircraft, 'I am only registering an aircraft' %>
-    <br>
-    <%= radio_button_tag :registertype, 'pilot', name="type"%>
-    <%= label_tag :registertype_pilot, 'I am only registering as a pilot' %>
-    -->
-    
-    <label><input type="radio" class="form-switch" name="typeoptions" value="both" data-id="a"> I am registering a a pilot and I am register an aircraft that I fly </label>
-    <br>
-    <label><input type="radio" class="form-switch" name="typeoptions" value="aircraft" data-id="b"> I am only registering an aircraft</label>
-    <br>
-    <label><input type="radio" class="form-switch" name="typeoptions" value="pilot" data-id="c"> I am only registering as a pilot </label>
-
-    </div>
     <br>
     
     <div class="form form-a">

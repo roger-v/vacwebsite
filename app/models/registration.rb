@@ -1,7 +1,7 @@
 class Registration < ApplicationRecord
     
     before_save { self.email = email.downcase } 
-    
+  
     validates :firstname, presence: true
     validates :lastname, presence: true
     validates :address, presence: true
