@@ -83,5 +83,7 @@ Rails.application.routes.draw do
   
   delete 'users/:id' => 'users#destroy', as: "delete_user"
   delete 'donations/:id' => 'donations#destroy', as: "delete_donation"
+  
+  get 'privacy_policy' => 'welcome#privacy_policy'
     
 end
