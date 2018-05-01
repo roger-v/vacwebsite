@@ -16,7 +16,7 @@ class AdminController < ApplicationController
       
     end
     @page = params[:page].to_i
-    @limit = 3
+    @limit = 30
     if (@@sortby)
       @users = User.order(@@sortby).limit(@limit).offset(@limit*(@page - 1))
     else
@@ -122,7 +122,7 @@ class AdminController < ApplicationController
       
     end
     @page = params[:page].to_i
-    @limit = 3
+    @limit = 30
     if (@@sortby)
       @donations = Donation.order(@@sortby).limit(@limit).offset(@limit*(@page - 1));
     else
@@ -165,7 +165,7 @@ class AdminController < ApplicationController
       
     end
     @page = params[:page].to_i
-    @limit = 3
+    @limit = 30
     if (@@sortby)
       @registrations = Registration.order(@@sortby).limit(@limit).offset(@limit*(@page - 1));
     else
