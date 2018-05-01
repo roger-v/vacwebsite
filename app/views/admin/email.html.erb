@@ -1,17 +1,18 @@
-<h1 class="fontColor1 bowlby">SEND EMAIL</h1>
-<div class="row">
+<h1 class="fontColor1 bowlby" style="padding-top:2%;">COMPOSE EMAIL</h1>
+<div class="row" style="padding:10%;">
   <div class="col-12 mx-auto d-block">
     <%= form_tag(admin_send_email_path, method: "post") do %>
-      <%= label_tag(:to, "To") %>
-      <%= text_field_tag(:to) %>
+      <%= text_field_tag :to, nil, {class: 'form-control', placeholder: 'Recipients', required: true} %>
       <br>
-      <%= label_tag(:subject, "Subject") %>
-      <%= text_field_tag(:subject) %>
+      <%= text_field_tag :cc, nil, {class: 'form-control', placeholder: 'Cc'} %>
       <br>
-      <%= label_tag(:body, "Body") %>
-      <%= text_area_tag(:body) %>
+      <%= text_field_tag :bcc, nil, {class: 'form-control', placeholder: 'Bcc'} %>
       <br>
-      <%= submit_tag("Send") %>
+      <%= text_field_tag :subject, nil, {class: 'form-control', placeholder: 'Subject'} %>
+      <br>
+      <%= text_area_tag :body, nil, {class: 'form-control', placeholder: 'Body', required: true, rows: 10} %>
+      <br>
+      <%= submit_tag "Send", {class: 'form-control' } %>
     <% end %>
   </div>
 </div>
