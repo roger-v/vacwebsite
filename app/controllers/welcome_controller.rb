@@ -28,4 +28,7 @@ class WelcomeController < ApplicationController
   def login
     
   end
+  def privacy_policy
+    
+  end
 end

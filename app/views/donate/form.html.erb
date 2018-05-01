@@ -1,0 +1,75 @@
+
+<div class="row">
+  
+  <div class="col-12">
+    <h1 class="fontColor1 bowlby">DONATION FORM</h1>
+    <% if @donation.errors.any? %>
+    <div class="flasherrors">
+      <h6>The following errors prevented the donation from being submitted:</h6>
+        <ul>
+          <% @donation.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <p>
+      You may use your credit card to make a secure online donation to the VAC. In order to assure your payment is handled in the most secure manner, we use PayPal, the internet leader in online payments, to process your donation!  Don't worry, you don't need a PayPal account to donate online. 
+    </p>
+    <p>
+      If you prefer, checks may be mailed to: Veterans Airlift Command 5775 Wayzata Boulevard, Suite 700 St. Louis Park, MN 55416 The VAC has been designated a 501©(3) non-profit charity by the IRS (Tax ID# 20-4567769). Donations are tax-deductible and may be eligible for matching funds from donors' employers (ask your employer).
+    </p>
+    <p>
+      Privacy: You are a patriot and an important supporter of our nation's honored veterans. Under no circumstances will we sell your name or personal information to anyone. It doesn't get simpler than that.
+    </p>
+    <p>
+      To make an online donation, please fill out the following information and press the Proceed to Payment button below.
+    </p>
+    
+  </div>
+  <div class="col-lg-6 col-sm-8 col-xs-12 mx-auto d-block">
+    <h5 class="fontColor1">Donor Information</h5>
+    <%= form_for @donation do |f| %>
+    <%= f.label "First name" %>
+    <%= f.text_field :firstname, class: 'form-control' %>
+    <%= f.label "Last name" %>
+    <%= f.text_field :lastname, class: 'form-control' %>
+    <%= f.label "Address" %>
+    <%= f.text_field :address, class: 'form-control' %>
+    <%= f.label "City" %>
+    <%= f.text_field :city, class: 'form-control' %>
+    <%= f.label "State" %>
+    <%= select_tag "donation[state]", options_for_select(us_states), id: 'donation_state', class: 'form-control' %><br>
+    <%= f.label "Zip Code" %>
+    <%= f.text_field :zipcode, class: 'form-control' %>
+    <%= f.label "Phone Number" %>
+    <%= f.text_field :phone, class: 'form-control', placeholder: 'XXX-XXX-XXXX' %>
+    <%= f.label "Email Address" %>
+    <%= f.text_field :email, class: 'form-control' %>
+    <%= f.label "Amount *" %>
+    <%= f.text_field :amount, class: 'form-control', placeholder: 'Please enter a donation amount in USD (required).', required: true %>
+    <br><h5 class="fontColor1">Donation Campaign</h5>
+    <p>If you'd like your donation to be associated with a specific VAC fundraising program or campaign, please indicate your selection below (leave blank if you have no specific designation):</p>
+    <%= select_tag "donation[campaign]", options_for_select(donation_campaigns), id: 'donation_campaign', class: 'form-control' %>
+    <br><h5 class="fontColor1">Donor Recognition</h5>
+    <p>
+      <%= check_box_tag "donation[anonymous]", id: 'donation_anonymous', class: 'form-control' %>
+      I prefer that my name remain anonymous  (checking this box will keep your name off of the donor recognition page) 
+    </p>
+    <p>
+      If you would like the name displayed on our recognition page to be something other than the first name and last name entered above, please enter that here exactly as you would like it displayed:
+      <br>
+      <%= f.text_field :donoralias, class: 'form-control', placeholder: 'Enter your alias here' %>
+    </p>
+    <h5 class="fontColor1">Donation Honoree</h5>
+    <p>
+      If you are making this donation in honor of another person, please enter their name below and it will be included on our donor recognition page:
+    </p>
+    <%= f.text_field :honoree, class: 'form-control', placeholder: 'Honoree name' %>
+    <br>
+    <%= f.submit "Proceed to Payment", class: 'mx-auto d-block' %>
+    <br>
+    <% end %>
+  </div>
+</div>
+

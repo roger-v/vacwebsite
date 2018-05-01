@@ -66,5 +66,10 @@ module FormHelper
     ]
   end
   
-  
+  def donation_campaigns
+    [
+      ['General'],
+      ['In Memory of COL Richard Iversen']
+    ]
+  end
 end

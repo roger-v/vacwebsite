@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   
   resources :users
+  resources :donations
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
@@ -48,6 +49,8 @@ Rails.application.routes.draw do
 
   get 'donate' => 'donate#index'
   
+  get 'donate/form' => 'donate#form'
+  
   get 'donors' => 'donate#donors'
   
   get 'pilot_and_owner_recognition' => 'donate#recognition'
@@ -74,6 +77,7 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
   
   get 'admin/users/:page' => 'admin#users', as: "admin_users"
+  get 'admin/donations/:page' => 'admin#donations', as: "admin_donations"
   
   get 'admin/registrations/:page' => 'admin#registrations', as: "admin_registrations"
 
@@ -86,7 +90,8 @@ Rails.application.routes.draw do
   
   delete 'registrations/:id' => 'registrations#destroy', as: "delete_registration"
 
-
-
+  delete 'donations/:id' => 'donations#destroy', as: "delete_donation"
+  
+  get 'privacy_policy' => 'welcome#privacy_policy'
     
 end

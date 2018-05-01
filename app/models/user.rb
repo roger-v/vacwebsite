@@ -14,8 +14,21 @@ class User < ApplicationRecord
     
     validates :password, presence: true, length: { minimum: 8, maximum: 255  }
 
-    def self.search(search)
-      where("firstname LIKE ? OR lastname LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
+    def self.search(search, search_attr)
+      where("firstname LIKE ? OR lastname LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%") 
+      
+      if (search_attr == "firstname")
+        where("firstname LIKE ?", "%#{search}%")
+      end
+      
+      if (search_attr == "lastname")
+        where("lastname LIKE ?", "%#{search}%")
+      end
+      
+      if (search_attr == "email")
+        where("email LIKE ?", "%#{search}%")
+      end
+    
     end
 
 end
