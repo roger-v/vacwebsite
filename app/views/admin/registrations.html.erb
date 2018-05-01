@@ -1,0 +1,159 @@
+<h1 class="fontColor1 bowlby">ADMIN - PILOT/AIRCRAFT REGISTRATIONS</h1>
+<div class="row">
+  <div class="col-12">
+    <%= render "flasherrors" %>
+
+    <p>Showing <%= [@limit, @registrations.size].min %> out of <%= @registrations.size %> results.</p>
+    <p>There are a total of <%= @num_pages %> pages.</p>
+    
+    <% if @registrations.blank? %>
+    <h4>No registration were found.</h4>
+    <% end %>
+    
+
+    
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th></th>
+          <th><%= link_to "First Name", admin_registrations_path(page: 1, sortby: :firstname) %></th>
+          <th><%= link_to "Last Name", admin_registrations_path(page: 1, sortby: :lastname) %></th>
+          <th><%= link_to "E-mail", admin_registrations_path(page: 1, sortby: :email) %></th>
+          <th>Registration Type</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip Code</th>
+          <th>Address</th>
+          <th>Phone Number</th>
+          <th>Description</th>
+          <th>Aircraft Make</th>
+          <th>Aircraft Model</th>
+          <th>Base Name</th>
+          <th>Base State</th>
+          <th>Base Zip Code</th>
+          <th> Tail Number</th>
+          <th>FAA Code</th>
+          <th>Owner Name</th>
+          <th># engines</th>
+          <th>Cruising Speed</th>
+          <th># seats</th>
+          <th>Operating Cost</th>
+          <th>Pressurized Cabin</th>
+          <th>Certified for Ice</th>
+          <th>Aircraft Recognition</th>
+          <th>Institution Name(different)</th>
+          <th>License Number</th>
+          <th>License Type</th>
+          <th>Instrument Rated</th>
+          <th>Pilot Recognition</th>
+          <th>Submitted on</th>
+
+          
+
+          <th></th>
+        </tr>
+        <% @registrations.each do |u|  %>
+        <tr>
+          <td><%= @i %></td>
+          <td><%= u.firstname  %></td>
+          <td><%= u.lastname %></td>
+          <td><%= u.email %></td>
+          <td>
+            <% if u.registertype_both == true %>
+            <%="pilot and aircraft" %>
+            <% end %>
+            <% if u.registertype_pilot == true%> 
+            <%= "pilot" %>
+            <% end %>
+            <% if u.registertype_aircraft == true%> 
+            <%= "aircraft" %>
+            <% end %>
+          </td>
+          <td><%= u.city %></td>
+          <td><%= u.state %></td>
+          <td><%= u.zipcode %></td>
+          <td><%=u.address %></td>
+          <td>
+            <% if u.preferhome == true %>
+            <%=u.homephone %>
+            <% end %>
+            <% if u.prefermobile == true%> 
+            <%= u.mobilephone %>
+            <% end %>
+            <% if u.preferwork == true%> 
+            <%= u.workphone %>
+            <% end %>
+            <% if u.preferwork != true && u.prefermobile != true && u.preferhome != true%> 
+            <%= "N/A" %>
+            <% end %>
+          </td>
+          <td><%=u.description %></td>
+          <td><%=u.aircraftmake %></td>
+          <td><%=u.aircraftmodel%></td>
+          <td><%=u.basename%></td>
+          <td><%=u.basestate%></td>
+          <td><%=u.basezip%></td>
+          <td><%=u.tailnumber%></td>
+          <td><%=u.faacode%></td>
+          <td><%=u.ownername%></td>
+          <td><%=u.engine%></td>
+          <td><%=u.speed%></td>
+          <td><%=u.seat%></td>
+          <td><%=u.cost%></td>
+          <td>
+            <% if u.cabin == true%> 
+            <%= u.cabin %>
+            <% else %>
+            <%= "false" %>
+            <% end %>
+          </td>
+          <td>
+            <% if u.ice == true%> 
+            <%= u.ice %>
+            <% else %>
+            <%= "false" %>
+            <% end %>
+          </td>
+          <td>
+            <% if u.aircraftanon == true%> 
+            <%= u.aircraftanon %>
+            <% else %>
+            <%= "false" %>
+            <% end %>
+          </td>
+         <td><%=u.aircraftalias %></td>
+         <td><%=u.licensenum %></td>
+         <td><%=u.licensetype %></td>
+         <td>
+            <% if u.rated == true%> 
+            <%= u.rated %>
+            <% else %>
+            <%= "false" %>
+            <% end %>
+          </td>
+         <td>
+            <% if u.pilotanon == true%> 
+            <%= u.pilotanon %>
+            <% else %>
+            <%= "false" %>
+            <% end %>
+          </td>
+
+          <td><%= u.created_at.strftime("%-m/%-d/%y") %></td>
+          <td><%= link_to "Delete", delete_registration_path(u.id), method: :delete, data: { confirm: 
+            'Are you sure you want to delete this registration form?'
+          } %></td>
+        </tr>
+        <% @i = @i + 1 %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="col-12 text-center">
+    <%= (link_to '<', admin_registrations_path(page: (@page - 1))) unless @page - 1 < 1 %>
+    <% for p in 1..(@num_pages)  %>
+      <%= if @page != p then link_to p, admin_registrations_path(page: p) else p end %>
+    <% end %>
+    <%= (link_to '>', admin_registrations_path(page: (@page + 1))) unless @page + 1 > @num_pages %>
+  </div>
+</div>

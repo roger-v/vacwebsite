@@ -2,9 +2,10 @@ class PilotsController < ApplicationController
   def index
     
   end
-  def register
-  
+  def form
+  @registration = Registration.new
   end
+
   def aircraft_registration
     
   end

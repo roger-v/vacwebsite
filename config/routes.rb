@@ -26,12 +26,14 @@ Rails.application.routes.draw do
   get 'passengers/faq' => 'passengers#faq'
   
 # PILOTS ----------------------
+
+  resources :registrations
   
   get 'pilots' => 'pilots#index'
   
-  get 'pilots/register' => 'pilots#register'
+  get 'pilots/form' => 'pilots#form'
   
-  get 'aircraft_registration' => 'pilots#aircraft_registration'
+  get 'aircraft_registration' => 'pilots#form'
   
   get 'pilots/faq' => 'pilots#faq'
   
@@ -77,11 +79,17 @@ Rails.application.routes.draw do
   get 'admin/users/:page' => 'admin#users', as: "admin_users"
   get 'admin/donations/:page' => 'admin#donations', as: "admin_donations"
   
+  get 'admin/registrations/:page' => 'admin#registrations', as: "admin_registrations"
+
+  
   get "admin/email" => "admin#email", as: "admin_email"
   
   post "admin/email" => "admin#send_email", as: "admin_send_email"
   
   delete 'users/:id' => 'users#destroy', as: "delete_user"
+  
+  delete 'registrations/:id' => 'registrations#destroy', as: "delete_registration"
+
   delete 'donations/:id' => 'donations#destroy', as: "delete_donation"
   
   get 'privacy_policy' => 'welcome#privacy_policy'

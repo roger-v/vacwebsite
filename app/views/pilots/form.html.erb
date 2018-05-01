@@ -1,0 +1,322 @@
+
+
+
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="bowlby fontColor1" style="padding-top:2%;">PILOT REGISTRATION</h1>
+
+    </div>
+    </div>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="pilots.css">
+</head>
+
+
+
+  
+  
+ <div class="row">
+   <div class="col-md-6 col-sm-12">
+  
+  <% if @registration.errors.any? %>
+    <div class="flasherrors">
+      <h6>The following errors prevented the registration from being submitted:</h6>
+        <ul>
+          <% @registration.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+   <p>
+  <link rel="stylesheet" href="pilots.scss">
+     <h4 class="fontColor10"><b>Join on our Wing</b></h4>
+     <%= image_tag "pilot_reg/pilot_app.jpg", class: "join_wing" %>
+
+     Instructions: The first step to joining the VAC is filling out this application form. While only your contact information is required, any additional information you provide will help speed up the process.
+     Once your application is submitted, the VAC will contact you.
+     Question about this Application?  Call us at 952-582-2911
+     </p>
+    
+  </div>
+  </div>
+  
+  
+  <div>
+      
+    <%= form_for @registration do |f| %>
+    
+    <div style="background-color:#f2f2f2;color:black;padding:20px;">
+    <h5><b>Type of Registration</b></h5>
+    <p>You must select one of the following (NOTE: Instrument rating required)</p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <label><input type="radio" class="form-switch" name="typeoptions" value="both", data-id="a" required> I am registering as a pilot and I am register an aircraft that I fly </label>
+    <br>
+    <label><input type="radio" class="form-switch" name="typeoptions" value="aircraft",  data-id="b" required> I am only registering an aircraft</label>
+    <br>
+    <label><input type="radio" class="form-switch" name="typeoptions" value="pilot", data-id="c" required> I am only registering as a pilot </label>
+
+    </div>
+    <br>
+    
+    <div style="background-color:#f2f2f2;color:black;padding:20px;">
+    <h5><b>Contact Information</b></h5>
+    <%= f.label "First name *"%> 
+    <%= f.text_field :firstname, required: true%>
+    &emsp;
+    <%= f.label "Middle name" %>
+    <%= f.text_field :middlename%>
+    &emsp;
+    <%= f.label "Last name *" %>
+    <%= f.text_field :lastname, required: true%>
+    <br>
+    <%= f.label "Address *" %>
+    <%= f.text_field :address, required: true%>
+    &emsp;
+    <%= f.label "City *" %>
+    <%= f.text_field :city, required: true%>
+    &emsp;
+    <%= f.label "State *" %>
+    <%= select_tag "registration[state]", options_for_select(us_states), id: 'registration_state', required: true%>
+    &emsp;
+    <%= f.label "Zip Code *" %>
+    <%= f.text_field :zipcode, required: true%>
+    <br>
+    <%= f.label "Home Phone Number"%>
+    <%= f.text_field :homephone%>
+    &emsp;
+    <%= f.label  "Work Phone Number"%>
+    <%= f.text_field :workphone%>
+    &emsp;
+    <%= f.label  "Mobile Phone Number"%>
+    <%= f.text_field :mobilephone%>
+    <br>
+    <p>Please indicate which phone # is your preferred method of contact:</p>
+    <%= radio_button_tag :preferred, 'home' %>
+    <%= label_tag :preferhome, 'Home' %>
+    <%= radio_button_tag :preferred, 'work' %>
+    <%= label_tag :preferwork, 'Work' %>
+    <%= radio_button_tag :preferred, 'mobile' %>
+    <%= label_tag :prefermobile, 'Mobile' %>
+    <br>
+    <br>
+    <%= f.label "Email Address *" %>
+    <%= f.text_field :email, required: true%>
+    <br>
+    <br>
+    <%= f.label "Tell us about yourself" %>
+    <p>(i.e. Aviation Background, any Military History, why VAC interests you, etc.)</p>
+    <%= f.text_area :description, class: 'form-control' %>
+    </div> 
+    
+    <br>
+    
+    <div class="form form-a">
+      <div style="background-color:#f2f2f2;color:black;padding:20px;">
+      <h5><b>Aircraft Registration Information</b></h5>
+       <%= f.label "Aircraft Make"%> 
+       <%= f.text_field :aircraftmake%>
+       &emsp;
+       <%= f.label "Model" %>
+       <%= f.text_field :aircraftmodel%>
+       &emsp;
+       <%= f.label "Year" %>
+       <%= f.text_field :year%>
+       <br>
+       <%= f.label "Base Airport Name"%> 
+       <%= f.text_field :basename%>
+       &emsp;
+       <%= f.label "Base Airport State" %>
+       <%= select_tag "registration[basestate]", options_for_select(us_states), id: 'registration_basestate'%>
+       &emsp;
+       <%= f.label "Base Zip Code" %>
+       <%= f.text_field :basezip%>
+       <br>
+       <%= f.label "Tail Number"%> 
+       <%= f.text_field :tailnumber%>
+       &emsp;
+       <%= f.label "FAA Designator/Equipment Code" %>
+       <%= f.text_field :faacode%>
+       <br>
+       <%= f.label "Registered Owner Name" %>
+       <%= f.text_field :ownername%>
+       <br>
+       <%= f.label "Number of Engines"%> 
+       <%= f.text_field :engine%>
+       &emsp;
+       <%= f.label "Cruising Speed (knots)" %>
+       <%= f.text_field :speed%>
+       <br>
+       <%= f.label "Number of Seats" %>
+       <%= f.text_field :seat%>
+       (including pilots & co-pilot)
+       <br>
+       <%= f.label "Operating Cost per hour" %>
+       <%= f.text_field :cost%>
+       &emsp;
+       (if you were to rent this airplane, this is the cost/hour)
+       <p>
+       <%= check_box_tag "registration[cabin]", id: 'registration_cabin', class: 'form-control' %>
+       Pressurized Cabin
+       &emsp;
+       <%= check_box_tag "registration[ice]", id: 'registration_ice', class: 'form-control' %>
+       Certified for Ice
+       </p>
+       <p>
+       The Veterans Airlift Command would like to recognize on our website the number of missions your aircraft has flown on behalf of the VAC. If you do want to be included on this list, check the box below:
+       <br>
+       <%= check_box_tag "registration[aircraftanon]", id: 'registration_aircraftanon', class: 'form-control' %>
+       Show completed missions on VAC Website
+       <br>
+       <br>
+       Typically we recognize Aircraft under the contact name provided on this form. If you would like this aircraft to be recognized under a different name, please enter it below. Otherwise, leave this item blank.
+       <br>
+       <%= f.label "Institution name" %>
+       <%= f.text_field :aircraftalias%>
+       </p>
+      </div>
+      
+      <br>
+      
+      <div style="background-color:#f2f2f2;color:black;padding:20px;">
+      <h5><b>Pilot Registration Information</b></h5>
+      <%= f.label "License Number"%> 
+      <%= f.text_field :licensenum%>
+      &emsp;
+      <%= f.label "License Type" %>
+      <%= select_tag "registration[licensetype]", options_for_select(license_type), id: 'license_type' %>
+      <br>
+      <%= check_box_tag "registration[rated]", id: 'registration_rated', class: 'form-control' %>
+      <%= f.label "Instrument Flight Rated"%>
+      (check if applicable)
+      <br>
+      <p>
+        The Veterans Airlift Command would like to recognize on our website the number of missions you have flown on behalf of the VAC. If you do want to be included on this list, check the box below:
+        <br>
+        <%= check_box_tag "registration[pilotanon]", id: 'registration_pilotanon', class: 'form-control' %>
+        Show completed missions on VAC website
+      </p>
+      </div>
+      
+    </div>
+    
+    <div class="form form-b">
+      
+      <div style="background-color:#f2f2f2;color:black;padding:20px;">
+      <h5><b>Aircraft Registration Information</b></h5>
+       <%= f.label "Aircraft Make"%> 
+       <%= f.text_field :aircraftmake%>
+       &emsp;
+       <%= f.label "Model" %>
+       <%= f.text_field :aircraftmodel%>
+       &emsp;
+       <%= f.label "Year" %>
+       <%= f.text_field :year%>
+       <br>
+       <%= f.label "Base Airport Name"%> 
+       <%= f.text_field :basename%>
+       &emsp;
+       <%= f.label "Base Airport State" %>
+       <%= select_tag "registration[basestate]", options_for_select(us_states), id: 'registration_basestate'%>
+       &emsp;
+       <%= f.label "Base Zip Code" %>
+       <%= f.text_field :basezip%>
+       <br>
+       <%= f.label "Tail Number"%> 
+       <%= f.text_field :tailnumber%>
+       &emsp;
+       <%= f.label "FAA Designator/Equipment Code" %>
+       <%= f.text_field :faacode%>
+       <br>
+       <%= f.label "Registered Owner Name" %>
+       <%= f.text_field :ownername%>
+       <br>
+       <%= f.label "Number of Engines"%> 
+       <%= f.text_field :engine%>
+       &emsp;
+       <%= f.label "Cruising Speed (knots)" %>
+       <%= f.text_field :speed%>
+       <br>
+       <%= f.label "Number of Seats" %>
+       <%= f.text_field :seat%>
+       (including pilots & co-pilot)
+       <br>
+       <%= f.label "Operating Cost per hour" %>
+       <%= f.text_field :cost%>
+       &emsp;
+       (if you were to rent this airplane, this is the cost/hour)
+       <p>
+       <%= check_box_tag "registration[cabin]", id: 'registration_cabin', class: 'form-control' %>
+       Pressurized Cabin
+       &emsp;
+       <%= check_box_tag "registration[ice]", id: 'registration_ice', class: 'form-control' %>
+       Certified for Ice
+       </p>
+       <p>
+       The Veterans Airlift Command would like to recognize on our website the number of missions your aircraft has flown on behalf of the VAC. If you do not want to be included on this list, uncheck the box below:
+       <br>
+       <%= check_box_tag "registration[aircraftanon]", id: 'registration_aircraftanon', class: 'form-control' %>
+       Show completed missions on VAC Website
+       <br>
+       <br>
+       Typically we recognize Aircraft under the contact name provided on this form. If you would like this aircraft to be recognized under a different name, please enter it below. Otherwise, leave this item blank.
+       <br>
+       <%= f.label "Institution name" %>
+       <%= f.text_field :aircraftalias%>
+       </p>
+      </div>
+      
+    </div>
+    
+    <div class="form form-c">
+      
+      <div style="background-color:#f2f2f2;color:black;padding:20px;">
+      <h5><b>Pilot Registration Information</b></h5>
+      <%= f.label "License Number"%> 
+      <%= f.text_field :licensenum%>
+      &emsp;
+      <%= f.label "License Type" %>
+      <%= select_tag "registration[licensetype]", options_for_select(license_type), id: 'license_type' %>
+      <br>
+      <%= check_box_tag "registration[rated]", id: 'registration_rated', class: 'form-control' %>
+      <%= f.label "Instrument Flight Rated"%>
+      (check if applicable)
+      <br>
+      <p>
+        The Veterans Airlift Command would like to recognize on our website the number of missions you have flown on behalf of the VAC. If you do not want to be included on this list, uncheck the box below:
+        <br>
+        <%= check_box_tag "registration[pilotanon]", id: 'registration_pilotanon', class: 'form-control' %>
+        Show completed missions on VAC website
+      </p>
+      </div>
+      
+    </div>
+    
+    
+    <script type="text/javascript">
+      $(document).ready(function() {
+  $('.form-switch').on('change', function() {
+    $('.form').removeClass('active');
+    var formToShow = '.form-' + $(this).data('id');
+    $(formToShow).addClass('active');
+  });
+});
+    </script>
+    
+    <%= f.submit "Submit Application", class: 'mx-auto d-block' %>
+    <br>
+
+
+    
+    <% end %>
+    
+
+    
+    </div>
+   
+ 
+  
+

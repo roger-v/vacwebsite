@@ -57,6 +57,15 @@ module FormHelper
     ]
   end
   
+  def license_type
+    [
+      [''],
+      ['Private'],
+      ['Commercial'],
+      ['ATP']
+    ]
+  end
+  
   def donation_campaigns
     [
       ['General'],
