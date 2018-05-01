@@ -130,6 +130,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    map (6.6.0)
     method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -187,6 +188,12 @@ GEM
       rails_admin (>= 0.6.6)
       rchardet (~> 1.6)
       simple_xlsx_reader (~> 1.0)
+    rails_current (2.1.0)
+      map (~> 6.0)
+    rails_default_url_options (3.0.0)
+    rails_helper (2.2.2)
+      rails_current (>= 1.0)
+      rails_default_url_options (>= 1.0)
     railties (5.1.5)
       actionpack (= 5.1.5)
       activesupport (= 5.1.5)
@@ -290,6 +297,7 @@ DEPENDENCIES
   rails (~> 5.1.5)
   rails_admin
   rails_admin_import (~> 2.0)
+  rails_helper
   rspec
   rspec-rails
   sass-rails (~> 5.0)

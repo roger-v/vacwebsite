@@ -70,3 +70,4 @@ gem 'bcrypt', '3.1.11'
 gem 'rails_admin'
 
 gem "rails_admin_import", "~> 2.0"
+
