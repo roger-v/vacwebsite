@@ -26,6 +26,10 @@ Rails.application.routes.draw do
   
   get 'passengers/faq' => 'passengers#faq'
   
+  post 'passengers' => 'passengers#create'
+  
+  get 'passengers/thank_you' => 'passengers#after_travel'
+  
 # PILOTS ----------------------
 
   resources :registrations
@@ -33,6 +37,8 @@ Rails.application.routes.draw do
   get 'pilots' => 'pilots#index'
   
   get 'pilots/form' => 'pilots#form'
+  
+  get 'pilots/thank_you' => 'pilots#after_submit'
   
   get 'aircraft_registration' => 'pilots#form'
   

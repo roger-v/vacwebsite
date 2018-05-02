@@ -1,16 +1,18 @@
 
-<div class="container-fluid">
-  <div class="row">
-    <h1 class="bowlby fontColor1" style="padding-top:2%;">TRAVEL REQUEST FORM</h1>
-
+  <div class="row" style="padding: 10%">
+    <h1 class="bowlby fontColor1">TRAVEL REQUEST FORM</h1>
+<% if @passenger.errors.any? %>
+  <div class="flasherrors">
+  <h6>The following errors prevented the travel request from being submitted:</h6>
+    <ul>
+      <% @passenger.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
     </div>
-    </div>
+  <% end %>
 
-<head>
-  <link rel="stylesheet" type="text/css" href="pilots.css">
-</head>
-
-<%= form_for Passenger.new do |f| %>
+<%= form_for @passenger do |f| %>
 <%= f.label "First name *"%> 
     <%= f.text_field :firstname, required: true%>
     &emsp;
@@ -64,6 +66,8 @@
 
 
 <% end %>
+
+</div>
  
   
 

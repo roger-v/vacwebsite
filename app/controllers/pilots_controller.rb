@@ -5,6 +5,10 @@ class PilotsController < ApplicationController
   def form
   @registration = Registration.new
   end
+  
+  def after_submit
+    
+  end
 
   def aircraft_registration
     

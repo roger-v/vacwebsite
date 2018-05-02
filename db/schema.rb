@@ -41,20 +41,6 @@ ActiveRecord::Schema.define(version: 20180502185629) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "passenger", force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.string "militarybranch"
-    t.string "phone"
-    t.string "militaryrank"
-    t.string "healthcarefacility"
-    t.integer "numberofpassengers"
-    t.integer "passengerweight"
-    t.string "departure"
-    t.string "destination"
-    t.string "date"
-  end
-
   create_table "passengers", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"

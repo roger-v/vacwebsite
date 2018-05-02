@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-    
+  
     def create
         
         case params[:preferred]
@@ -25,7 +25,7 @@ class RegistrationsController < ApplicationController
          @registration = Registration.new(registration_params)
          
          if @registration.save
-             redirect_to '/pilots#index'
+             redirect_to pilots_thank_you_path
          else
              redirect_to '/pilots#index'
          end
