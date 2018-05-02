@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   get 'advisory_board' => 'welcome#advisory_board'
   
 # PASSENGERS ----------------------
-
+  resources :passenger
+  
   get 'passengers/' => 'passengers#index'
   
   get 'passengers/travel' => 'passengers#travel'
