@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   
   get 'donors' => 'donate#donors'
   
-  get 'pilot_and_owner_recognition' => 'donate#recognition'
+  get 'pilot_and_owner_recognition' => 'pilots#recognition'
   
   get 'corporate_recognition' => 'donate#corporate_recognition'
   

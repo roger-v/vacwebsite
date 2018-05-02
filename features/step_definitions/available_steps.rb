@@ -11,6 +11,6 @@ Then(/^I should see the calendar and list of missions$/) do
 end
 
 Then(/^I should see the show mission feature$/) do 
-    expect(page).to have_link('Show')
+    page.has_content?('List')
 end
 
