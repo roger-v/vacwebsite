@@ -6,7 +6,7 @@ class PassengerTest < ActiveSupport::TestCase
   # end
   
   def setup
-    @passengers = Passenger.new(firstname: "firstname", lastname: "lastname", militarybranch: "branch" )
+    @passengers = Passenger.new(firstname: "firstname", lastname: "lastname", militarybranch: "branch", phone: 1234567899, militaryrank: "Sergeant")
   end
   
   test "should be valid" do
@@ -25,6 +25,16 @@ class PassengerTest < ActiveSupport::TestCase
   
   test "militarybranch should be present" do 
     @passengers.militarybranch=""
+    assert @passengers.valid?
+  end
+  
+  test "phone should be present" do 
+    @passengers.phone=""
+    assert @passengers.valid?
+  end
+  
+  test "militaryrank should be present" do 
+    @passengers.militaryrank=""
     assert @passengers.valid?
   end
   
