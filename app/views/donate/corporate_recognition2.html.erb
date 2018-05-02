@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-12 mx-auto d-block">
+    <h1>Corporate Sponsors</h1>
+  </div>
+  <div class="col-lg-6 col-md-8 col-sm-12 mx-auto d-block" style="padding-top:.5%">
+    <%= link_to "DONATE NOW", donate_form_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row" style="padding-bottom:2%">
+    <div class="container text-center">
+      <h4>
+        The Veterans Airlift Command
+      </h4>
+      <h4>
+        would like to thank the following corporations for their generous support:
+      </h4>
+      <br>
+      <div class="row" style="padding:0% 20%;">
+        <% (0..3).each do |i| %> 
+        <!--would like to make the end value the length of @levelXlogos-->
+          <div class="col-lg-6 col-md-8 col-sm-12 mx-auto d-block" align="center">
+            <div class="parentbox" style="height:250px; width:300px;">
+              <a href="<%= @level3links[i]%>">
+                <div class="childbox">
+                  <%= image_tag ("corporate_sponsors/corplevel3/" + @level3logos[i]), :class => "img-fluid mx-auto d-block"%>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div container text-center>
+        <h2>
+          _______________________________________________________________
+        </h2>
+      </div>
+      <br>
+      <div class="row" style="padding:0% 5%;">
+        <% (0..13).each do |i| %> 
+        <!--would like to make the end value the length of @levelXlogos-->
+          <div class="col-lg-3 col-md-6 col-sm-12 mx-auto d-block" align="center">
+            <div class="parentbox" style="height:175px; width:250px;">
+              <a href="<%= @level2links[i]%>">
+                <div class="childbox">
+                  <%= image_tag ("corporate_sponsors/corplevel2/" + @level2logos[i]), :class => "img-fluid mx-auto d-block" %>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div container text-center>
+        <h2>
+          _______________________________________________________________
+        </h2>
+      </div>
+      <br>
+      <div class="row" style="padding:0% 2%;">
+        <% (0..27).each do |i| %> 
+        <!--would like to make the end value the length of @levelXlogos-->
+          <div class="col-lg-2 col-md-4 col-sm-6 mx-auto d-block" align="center">
+            <div class="parentbox" style="height:150px; width:150px;">
+              <a href="<%= @level1links[i]%>">
+                <div class="childbox">
+                  <%= image_tag ("corporate_sponsors/corplevel1/" + @level1logos[i]), :class => "img-fluid mx-auto d-block" %>
+                </div>
+              </a>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div container text-center>
+        <h2>
+          _______________________________________________________________
+        </h2>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-12 mx-auto d-block">
+          <%= link_to "FINANCIAL DONORS", donors_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+        </div>
+        <div class="col-lg-6 col-md-8 col-sm-12 mx-auto d-block">
+          <%= link_to "AIRCRAFT OWNER & PILOT RECOGNITION", pilot_and_owner_recognition_path,  {class: "btn btn-primary btn-block bg-navyblue text-white btnpad", type: "button", role: "button"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
