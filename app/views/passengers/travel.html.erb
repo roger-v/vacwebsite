@@ -1,3 +1,69 @@
-<h1 class="bowlby fontColor1" style="padding-top:2%;">TRAVEL REQUEST FORM</h1>
 
-<%= render 'underconstruction' %>
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="bowlby fontColor1" style="padding-top:2%;">TRAVEL REQUEST FORM</h1>
+
+    </div>
+    </div>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="pilots.css">
+</head>
+
+<%= form_for Passenger.new do |f| %>
+<%= f.label "First name *"%> 
+    <%= f.text_field :firstname, required: true%>
+    &emsp;
+    <%= f.label "Last name *" %>
+    <%= f.text_field :lastname, required: true%>
+    <br>
+    <%= f.label "Branch of Service *" %>
+    <%= f.text_field :militarybranch, required: true%>
+    &emsp;
+    <%= f.label "Phone #" %>
+    <%= f.text_field :phone, required: true%>
+    &emsp;
+    <%= f.label "Military Rank" %>
+    <%= f.text_field :militaryrank, required: true%>
+    <br>
+    <%= f.label "Health Care Facility Name"%>
+    <%= f.text_field :healthcarefacility%>
+    &emsp;
+    <%= f.label "Number of Passenger"%>
+    <%= f.text_field :numberofpassengers%>
+    &emsp;
+    <br>
+    <%= f.label "Weight of Passenger"%>
+    <%= f.text_field :passengerweight%>
+    &emsp;
+    <br>
+    <%= f.label "Departure"%>
+    <%= f.text_field :departure%>
+    &emsp;
+    <br>
+    <%= f.label "Destination"%>
+    <%= f.text_field :destination%>
+    &emsp;
+    <br>
+    <%= f.label "Date MM/DD/YY"%>
+    <%= f.text_field :date%>
+    &emsp;
+    <br>
+    <script type="text/javascript">
+      $(document).ready(function() {
+  $('.form-switch').on('change', function() {
+    $('.form').removeClass('active');
+    var formToShow = '.form-' + $(this).data('id');
+    $(formToShow).addClass('active');
+  });
+});
+    </script>
+    
+    <%= f.submit "Submit Trip Request", class: 'mx-auto d-block' %>
+    <br>
+
+
+<% end %>
+ 
+  
+
